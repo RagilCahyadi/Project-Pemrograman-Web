@@ -1,5 +1,4 @@
-## Nama Aplikasi
-RNR Digital Printing
+## RNR Digital Printing
 RNR Digital Printing adalah sebuah web penyedia jasa layanan Digital Printing yang bisa digunakan oleh pengguna secara mudah untuk memesan jasa berupa pencetakan Digital Imaging
 
 ## Daftar Anggota Kelompok  
