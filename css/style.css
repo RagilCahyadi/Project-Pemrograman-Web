@@ -82,5 +82,6 @@ section{
 }
 
 .nav-bot:hover{
-    color: orangered !important;
+    color: orange !important;
+    font-weight: bold;
 }
