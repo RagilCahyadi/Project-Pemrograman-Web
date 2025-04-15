@@ -81,3 +81,6 @@ section{
     padding-bottom: 20px;
 }
 
+.nav-bot:hover{
+    color: orangered !important;
+}
