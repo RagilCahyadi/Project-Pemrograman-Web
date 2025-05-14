@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Diubah ke id -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
     />
     <!--FavIcon-->
 
-    <title>Checkout Cetak Fancy Paper - RNR Digital Printing</title> <!-- === Diperbaiki: Judul Halaman === -->
+    <title>Checkout Cetak Fancy Paper - RNR Digital Printing</title>
 
     <!--CSS-->
     <link rel="stylesheet" href="./css/style.css" />
@@ -174,13 +174,6 @@
             <li class="nav-item">
               <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> <!-- Link ke section di index -->
             </li>
-            <!-- === Hapus: Link Keranjang di Navbar === -->
-             <!--
-             <li class="nav-item">
-               <a class="nav-link fw-bold text-white" href="cart.html">Keranjang (<span id="cartItemCount">0</span>)</a>
-             </li>
-              -->
-             <!-- ===================================== -->
           </ul>
         </div>
       </div>
@@ -190,7 +183,7 @@
     <section class="order-page-section">
         <div class="container">
 
-            <h1 class="text-primary text-center mb-5">Checkout Cetak Fancy Paper</h1> <!-- === Diperbaiki: Judul Utama === -->
+            <h1 class="text-primary text-center mb-5">Checkout Cetak Fancy Paper</h1>
 
             <div class="row g-4"> <!-- Use g-4 for gutter spacing -->
 
@@ -198,48 +191,28 @@
                 <div class="col-md-6">
                     <div class="product-image-preview">
                         <!-- Bootstrap Carousel goes here -->
-                        <!-- Pastikan ID carousel sesuai dengan data-bs-target di tombol dan indikator -->
                         <div id="fancyPaperCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <!-- Indicators (optional dots at the bottom) -->
+                            <!-- Indicators -->
                             <div class="carousel-indicators">
                               <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                               <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                               <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                               <!-- Tambahkan lebih banyak tombol di sini jika ada lebih dari 3 gambar. Pastikan data-bs-slide-to sesuai (3, 4, dst) -->
                             </div>
 
-                            <!-- Carousel Inner (the slides themselves) -->
+                            <!-- Carousel Inner -->
                             <div class="carousel-inner">
-                              <!-- Slide 1 (needs 'active' class) -->
                               <div class="carousel-item active">
                                 <img src="./assets/7.jpeg" class="d-block w-100" alt="Fancy Paper Example 1">
-                                <!-- Optional: Caption -->
-                                <!-- <div class="carousel-caption d-none d-md-block">
-                                  <h5>Tampilan Fancy Paper</h5>
-                                  <p>Lihat detail teksturnya.</p>
-                                </div> -->
                               </div>
-
-                              <!-- Slide 2 -->
                               <div class="carousel-item">
                                 <img src="./assets/fancy_paper_example_2.jpg" class="d-block w-100" alt="Fancy Paper Example 2">
-                                <!-- GANTI ./assets/fancy_paper_example_2.jpg dengan path gambar Fancy Paper kedua Anda -->
-                                <!-- PASTIKAN GAMBAR INI ADA DAN PATHNYA BENAR -->
                               </div>
-
-                              <!-- Slide 3 -->
                               <div class="carousel-item">
                                 <img src="./assets/fancy_paper_example_3.png" class="d-block w-100" alt="Fancy Paper Example 3">
-                                <!-- GANTI ./assets/fancy_paper_example_3.png dengan path gambar Fancy Paper ketiga Anda -->
-                                <!-- PASTIKAN GAMBAR INI ADA DAN PATHNYA BENAR -->
                               </div>
-
-                              <!-- Tambahkan lebih banyak .carousel-item di sini untuk setiap gambar. Pastikan class active hanya di 1 item. -->
-
                             </div>
 
-                            <!-- Controls (Previous and Next buttons) -->
-                            <!-- Pastikan data-bs-target sesuai dengan ID carousel -->
+                            <!-- Controls -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Previous</span>
@@ -249,17 +222,14 @@
                               <span class="visually-hidden">Next</span>
                             </button>
                           </div>
-                        <!-- End Bootstrap Carousel -->
                     </div>
 
-                    <!-- Moved Section for Product Details (Now below the carousel in the left column) -->
-                    <div class="details-below-carousel"> <!-- Menggunakan class generic -->
-                         <!-- === Catatan tentang Ukuran Gambar Carousel === -->
+                    <!-- Moved Section for Product Details -->
+                    <div class="details-below-carousel">
                          <p class="text-muted small text-center fst-italic">
                              Untuk tampilan terbaik di slide, pastikan semua gambar memiliki rasio aspek (perbandingan lebar & tinggi) yang serupa.
                              Pastikan juga path gambar yang digunakan (.`/assets/...`) sudah benar.
                          </p>
-                         <!-- ========================================== -->
 
                         <h3>Detail Produk Cetak Fancy Paper</h3>
                         <p class="lh-lg">
@@ -279,7 +249,6 @@
                         <p class="lh-lg">
                             Kami menggunakan teknologi cetak digital terbaru untuk menghasilkan detail tajam dan warna yang akurat di atas permukaan Fancy Paper. Upload desain Anda dalam format yang direkomendasikan (PDF, AI, CDR) untuk hasil optimal. Jika Anda membutuhkan ukuran custom atau finishing tambahan seperti pond (cutting bentuk) atau hot foil, silakan cantumkan di catatan tambahan atau hubungi tim kami.
                         </p>
-                         <!-- Anda bisa tambahkan tabel spesifikasi, info pengerjaan, dll di sini -->
                          <h4>Jenis-Jenis Fancy Paper</h4>
                          <ul>
                              <li>**Linen:** Tekstur permukaan menyerupai kain linen, memberikan kesan klasik dan elegan.</li>
@@ -299,8 +268,6 @@
                          </ul>
 
                     </div>
-                    <!-- End Moved Section -->
-
                 </div>
 
                 <!-- Right Column: Configuration Form -->
@@ -310,10 +277,9 @@
                         <p class="text-muted mb-4">Sesuaikan pilihan cetak Anda.</p>
 
                          <!-- Formulir Pemesanan Fancy Paper -->
-                         <!-- === Diperbaiki: Tambah Atribut Form untuk Submit === -->
-                        <form id="fancyPaperOrderForm" action="proses_pesanan.php" method="POST" enctype="multipart/form-data">
-                        <!-- ==================================================== -->
-                           <input type="hidden" name="product" value="Cetak Fancy Paper"> <!-- Menyimpan jenis produk -->
+                         <!-- action dan method dihapus/diabaikan karena submit ditangani JS -->
+                        <form id="fancyPaperOrderForm" enctype="multipart/form-data">
+                           <input type="hidden" name="product" value="Cetak Fancy Paper">
 
                            <div class="mb-3">
                              <label for="paperType" class="form-label">Pilih Jenis Fancy Paper (opsional)</label>
@@ -323,7 +289,6 @@
                                  <option value="Jasmine">Jasmine</option>
                                  <option value="Concorde">Concorde</option>
                                  <option value="Hammer">Hammer</option>
-                                 <!-- Tambahkan jenis fancy paper lainnya jika ada -->
                                  <option value="Other">Jenis Lain</option>
                              </select>
                            </div>
@@ -345,14 +310,12 @@
                                     <option value="None">Tanpa Finishing</option>
                                     <option value="Laminasi Doff">Laminasi Doff</option>
                                     <option value="Laminasi Glossy">Laminasi Glossy</option>
-                                    <!-- Tambahkan opsi finishing lain jika relevan untuk fancy paper -->
                                 </select>
                               </div>
 
-
                            <div class="mb-3">
                              <label for="quantity" class="form-label">Jumlah Pesanan (pcs/lembar) <span class="text-danger">*</span></label>
-                             <input type="number" class="form-control" id="quantity" name="quantity" min="1" required value="1"> <!-- Default value 1 -->
+                             <input type="number" class="form-control" id="quantity" name="quantity" min="1" required value="1">
                            </div>
 
                            <div class="mb-3">
@@ -366,7 +329,7 @@
                              <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Contoh: Ukuran custom 10x15 cm, harap dipotong sesuai pola"></textarea>
                            </div>
 
-                            <!-- Bidang Kontak & Pengiriman Ditambah Kembali di Halaman Checkout -->
+                            <!-- Bidang Kontak & Pengiriman -->
                             <hr class="my-4">
                             <h5 class="mb-3">Info Kontak & Pengiriman</h5>
 
@@ -377,7 +340,6 @@
                                    <option value="pickup">Ambil Sendiri di Toko (Gratis)</option>
                                    <option value="standard">Kurir Standar (Estimasi 2-3 Hari Kerja)</option>
                                    <option value="express">Kurir Express (Estimasi 1-2 Hari Kerja)</option>
-                                   <!-- Tambahkan opsi pengiriman lain jika ada (misal berdasarkan lokasi) -->
                                </select>
                              </div>
 
@@ -400,109 +362,85 @@
                               <small class="form-text text-muted">Isi jika pesanan perlu dikirim.</small>
                             </div>
 
-
-                            <!-- === Checkout Summary Section (Mengandung Rincian Harga Lengkap) === -->
+                           <!-- Checkout Summary Section -->
                            <div class="checkout-summary mt-4">
-                               <h4>Ringkasan Pesanan</h4> <!-- Judul Ringkasan ada di sini -->
-                               <!-- Price Summary with Breakdown -->
-                               <div class="price-summary"> <!-- Price summary tetap ada, tapi bordernya dihilangkan di CSS -->
-                                    <!-- H4 Price Summary title dihapus dari sini jika sudah ada di checkout-summary -->
+                               <h4>Ringkasan Pesanan</h4>
+                               <div class="price-summary">
                                     <ul class="price-breakdown">
                                         <li>
                                             <span>Subtotal Item:</span>
                                             <span id="itemSubtotal">Rp 0</span>
                                         </li>
-                                         <!-- === Elemen baru untuk Estimasi Sampai === -->
                                         <li>
                                             <span>Estimasi Sampai:</span>
                                             <span id="estimatedTime">Pilih opsi pengiriman</span>
                                         </li>
-                                         <!-- ==================================== -->
                                         <li>
                                             <span>Pengiriman:</span>
                                             <span id="shippingCost">Rp 0</span>
                                         </li>
-                                         <li>
+                                        <li>
                                             <span>Pajak:</span>
                                             <span id="taxAmount">Rp 0</span>
                                         </li>
-                                        <li class="cart-total"> <!-- Gunakan cart-total class untuk styling tebal -->
+                                        <li class="cart-total">
                                             <span>Total Estimasi:</span>
                                             <span id="finalTotal" class="text-success">Rp 0</span>
                                         </li>
                                     </ul>
                                     <small class="text-muted d-block mt-2">*Harga estimasi, konfirmasi final akan diberikan setelah file diperiksa dan spesifikasi lengkap.</small>
                                </div>
-                                <!-- End Price Summary -->
 
-                               <!-- === Diperbaiki: Ubah Tombol kembali menjadi Submit Checkout === -->
+                               <!-- Tombol Lanjutkan Pembayaran -->
                                <div class="d-grid gap-2 mt-4">
-                                 <button type="submit" class="btn btn-primary btn-lg">Lanjutkan Pembayaran</button> <!-- Ubah type dan text -->
+                                 <button type="button" class="btn btn-primary btn-lg" id="continueToPaymentButton">Lanjutkan Pembayaran</button> <!-- Diubah type="button" dan diberi ID -->
                                  <a href="index.html#services" class="btn btn-secondary btn-lg">Kembali ke Layanan</a>
                                </div>
-                               <!-- =========================================================== -->
                            </div>
-                           <!-- === End Checkout Summary Section === -->
-
                         </form>
-                        <!-- End Formulir -->
                     </div>
                 </div>
-
-            </div> <!-- End .row -->
-
-            <!-- The old product-details-section is now moved/gone from here -->
-
-        </div> <!-- End .container -->
+            </div>
+        </div>
     </section>
 
-
-       <!-- Footer -->
-        <section class="footer bg-primary mt-5">
-          <div class="container">
+    <!-- Footer -->
+    <section class="footer bg-primary mt-5">
+        <div class="container">
             <div class="footer-box">
-              <div class="row justify-content-between row-gap-4">
-                <div class="col col-md-4 col-12 text-white">
-                  <div class="d-flex align-items-center gap-2">
-                    <img
-                    src="./assets/2.png"
-                    alt="Logo"
-                    width="30"
-                    height="30"
-                    class="d-inline-block align-text-top"
-                  />
-                  <span class="fs-4 fw-bold">RNR Digital Printing</span>
-                  </div>
-                  <p class="lh-lg m-0">Butuh cetak cepat dan hasil keren? Serahkan pada RNR Digital Printing - partner cetak andalan kamu!</p>
+                <div class="row justify-content-between row-gap-4">
+                    <div class="col col-md-4 col-12 text-white">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="./assets/2.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
+                            <span class="fs-4 fw-bold">RNR Digital Printing</span>
+                        </div>
+                        <p class="lh-lg m-0">Butuh cetak cepat dan hasil keren? Serahkan pada RNR Digital Printing - partner cetak andalan kamu!</p>
+                    </div>
+                    <div class="col col-md-2 col-12 d-flex flex-column text-white gap-2">
+                        <h4 class="fw-bold">Menu</h4>
+                        <a href="index.html#home" class="nav-bot text-white text-decoration-none">Home</a>
+                        <a href="index.html#about" class="nav-bot text-white text-decoration-none">About</a>
+                        <a href="index.html#order-guide" class="nav-bot text-white text-decoration-none">How To Order</a>
+                        <a href="index.html#services" class="nav-bot text-white text-decoration-none">Services</a>
+                        <a href="index.html#faq" class="nav-bot text-white text-decoration-none">FAQ</a>
+                    </div>
+                    <div class="col col-md-4 col-12 d-flex flex-column text-white gap-2 lh-lg">
+                        <h4 class="fw-bold">Contact Us</h4>
+                        <address>
+                            <p class="m-0 d-flex align-items-center gap-2">Email: <a href="mailto:digitalprinting@rnr.tugas1.id" class="text-white">digitalprinting@rnr.tugas1.id</a></p>
+                            <p class="m-0 d-flex align-items-center gap-2">Phone: <a href="tel:+6285156963404" class="text-white">0851-5696-3404</a></p>
+                            <p class="m-0 d-flex align-items-center gap-2">Address: Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik Regency, East Java 61122</p>
+                        </address>
+                    </div>
                 </div>
-                <div class="col col-md-2 col-12 d-flex flex-column text-white gap-2">
-                  <h4 class="fw-bold">Menu</h4>
-                  <a href="index.html#home" class="nav-bot text-white text-decoration-none">Home</a>
-                  <a href="index.html#about" class="nav-bot text-white text-decoration-none">About</a>
-                  <a href="index.html#order-guide" class="nav-bot text-white text-decoration-none">How To Order</a>
-                  <a href="index.html#services" class="nav-bot text-white text-decoration-none">Services</a>
-                  <a href="index.html#faq" class="nav-bot text-white text-decoration-none">FAQ</a>
-                </div>
-                <div class="col col-md-4 col-12 d-flex flex-column text-white gap-2 lh-lg">
-                  <h4 class="fw-bold">Contact Us</h4>
-                  <address>
-                    <p class="m-0 d-flex align-items-center gap-2">Email: <a href="mailto:digitalprinting@rnr.tugas1.id" class="text-white">digitalprinting@rnr.tugas1.id</a></p>
-                    <p class="m-0 d-flex align-items-center gap-2">Phone: <a href="tel:+6285156963404" class="text-white">0851-5696-3404</a></p>
-                    <p class="m-0 d-flex align-items-center gap-2">Address: Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik Regency, East Java 61122</p>
-                  </address>
-                </div>
-              </div>
             </div>
-
             <div class="copyright text-white text-center mt-5">
-              <p>&copy; Copyright by <span class="fw-bold">RNR Enterprise</span> 2025, All Rights Reserved.</p>
-              <p>Made With <span>&#10084;</span></p>
+                <p>© Copyright by <span class="fw-bold">RNR Enterprise</span> 2025, All Rights Reserved.</p>
+                <p>Made With <span>❤</span></p>
             </div>
-
-          </div>
-        </section>
-       <!-- Footer -->
-
+        </div>
+    </section>
+    <!-- Footer -->
 
     <!--Bootstraps JS-->
     <script
@@ -512,7 +450,7 @@
     ></script>
     <!--Bootstraps JS-->
 
-    <!-- === Diperbaiki: Script Perkiraan Harga dengan Shipping/Tax di halaman Checkout ini === -->
+    <!-- Script Perkiraan Harga dan Redirect ke Payment Page -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Get references to price display elements
@@ -520,17 +458,21 @@
             const shippingCostDisplay = document.getElementById('shippingCost');
             const taxAmountDisplay = document.getElementById('taxAmount');
             const finalTotalDisplay = document.getElementById('finalTotal');
-            const estimatedTimeDisplay = document.getElementById('estimatedTime'); // Reference to estimated time display
+            const estimatedTimeDisplay = document.getElementById('estimatedTime');
 
-
-            // Get references to relevant input elements (SPECIFIC TO THIS FILE: Fancy Paper)
+            // Get references to relevant input elements
             const quantityInput = document.getElementById('quantity');
             const paperTypeSelect = document.getElementById('paperType');
             const finishingSelect = document.getElementById('finishing');
             const sizeSelect = document.getElementById('size');
-
-            // Input Pengiriman yang Ditambah Kembali
             const shippingMethodSelect = document.getElementById('shippingMethod');
+            const customerNameInput = document.getElementById('customerName');
+            const customerPhoneInput = document.getElementById('customerPhone');
+            const customerEmailInput = document.getElementById('customerEmail');
+            const customerAddressInput = document.getElementById('customerAddress');
+            const notesInput = document.getElementById('notes');
+            const continueButton = document.getElementById('continueToPaymentButton');
+            const orderForm = document.getElementById('fancyPaperOrderForm');
 
 
             // Define costs and times (REPLACE WITH YOUR ACTUAL PRICING LOGIC)
@@ -542,11 +484,9 @@
                  'pickup': { cost: 0, estimatedTime: 'Siap diambil hari ini/besok (konfirmasi)' },
                  'standard': { cost: 15000, estimatedTime: '2-3 Hari Kerja' }, // Example cost
                  'express': { cost: 30000, estimatedTime: '1-2 Hari Kerja' } // Example cost
-                 // Add more options as needed. Costs might depend on weight/volume and destination in reality.
             };
 
-
-            // Define base prices/cost multipliers per item configuration (REPLACE THESE)
+             // Define base prices/cost multipliers per item configuration (REPLACE THESE)
              function getItemPrice(itemType, finishing, size) { // Parameters specific to Fancy Paper
                  // --- LOGIKA HARGA ANDA DI SINI ---
                  // Fungsi ini harus mengembalikan harga SATU unit item berdasarkan konfigurasi yang dipilih.
@@ -569,24 +509,28 @@
                  let sizeMultiplier = 1; // Multiplier harga berdasarkan ukuran
                  if (size === 'A4') sizeMultiplier = 1.5; // A4 1.5x lebih besar/mahal dari standar
                  else if (size === 'A5') sizeMultiplier = 0.8; // A5 0.8x dari standar (contoh)
-                  // Ukuran custom akan bergantung pada catatan, tidak bisa dihitung otomatis di sini.
+                  // Ukuran custom akan bergantung pada catatan. Harga ini HANYA ESTIMASI
+                  // Jika ada ukuran custom dipilih, harganya tidak bisa dihitung otomatis dengan multiplier ini.
                   // Anda mungkin perlu bidang input terpisah untuk ukuran custom (PxL) dan menghitung area,
                   // lalu mengalikan dengan harga per luas (per m2 atau per cm2) untuk kertas fancy.
+                  if (size === 'Custom') sizeMultiplier = 1; // Treat custom size as base for estimation
+
 
                  // Calculate price per single item
-                 let pricePerSingleItem = (basePricePerItem + paperTypeCost + finishingCost) * sizeMultiplier;
+                  // Ensure basic options are selected for a valid calculation
+                 if (parseInt(quantityInput.value) > 0) { // Only calculate if quantity > 0
+                    let price = (basePricePerItem + paperTypeCost + finishingCost) * sizeMultiplier;
+                     // Minimal price check
+                     const minPrice = 5000; // Example minimum price per item
+                     if (price > 0 && price < minPrice) return minPrice; // Apply minimum only if quantity > 0
+                    return price;
+                 }
+                 return 0; // Return 0 if quantity is 0 or essential options for price are not selected
 
-                 // Ensure minimum price per item if needed
-                 // const minPrice = 5000; // Example minimum price per item
-                 // if (pricePerSingleItem > 0 && pricePerSingleItem < minPrice) pricePerSingleItem = minPrice;
-
-
-                 return pricePerSingleItem;
              }
 
             // Function to format number to Rupiah
              function formatRupiah(number) {
-                // Ensure number is treated as a number, default to 0 if invalid
                 const num = parseFloat(number) || 0;
                 return new Intl.NumberFormat('id-ID', {
                     style: 'currency',
@@ -595,94 +539,123 @@
                 }).format(num);
              }
 
-
             // Define function to update all price elements
             function updateEstimatedPrice() {
                 const quantity = parseInt(quantityInput.value) || 0;
-                const paperType = paperTypeSelect.value; // Fancy Paper specific
-                const finishing = finishingSelect.value; // Fancy Paper specific
-                const size = sizeSelect.value; // Fancy Paper specific
-                const selectedShippingMethod = shippingMethodSelect.value; // Get selected shipping method
-
+                const paperType = paperTypeSelect.value;
+                const finishing = finishingSelect.value;
+                const size = sizeSelect.value;
+                const selectedShippingMethod = shippingMethodSelect.value;
 
                 let itemSubtotal = 0;
                 let calculatedShipping = 0;
                 let calculatedTax = 0;
                 let finalTotal = 0;
-                let estimatedTime = 'Pilih opsi pengiriman'; // Default estimated time
-
+                let estimatedTime = 'Pilih opsi pengiriman';
 
                 // Calculate subtotal for items
-                // Only calculate item subtotal if quantity > 0
-                if (quantity > 0) {
-                     // Calculate subtotal for items
-                     let pricePerSingleItem = getItemPrice(paperType, finishing, size); // Using Fancy Paper specific function
+                 if (quantity > 0) {
+                     let pricePerSingleItem = getItemPrice(paperType, finishing, size);
                      itemSubtotal = quantity * pricePerSingleItem;
-                } else {
-                    itemSubtotal = 0; // Item subtotal is 0 if quantity is 0
-                }
+                 } else {
+                     itemSubtotal = 0;
+                 }
 
+                 // Get shipping cost and estimated time
+                const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
+                calculatedShipping = shippingInfo.cost;
+                estimatedTime = shippingInfo.estimatedTime;
 
-                 // Get shipping cost and estimated time based on selected method
-                const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions['']; // Default to empty option if value is weird
-                calculatedShipping = shippingInfo.cost; // Shipping cost
-                estimatedTime = shippingInfo.estimatedTime; // Estimated time
-
-                 // Calculate tax (as percentage of item subtotal)
+                 // Calculate tax
                  calculatedTax = itemSubtotal * TAX_RATE_PLACEHOLDER;
 
 
-                 // Calculate final total (only if item subtotal is valid)
-                 if (itemSubtotal > 0) { // Only add shipping/tax if there's a valid item subtotal
+                 // Calculate final total (only if item subtotal > 0)
+                 if (itemSubtotal > 0) {
                      finalTotal = itemSubtotal + calculatedShipping + calculatedTax;
                  } else {
-                     // If item subtotal is 0 (e.g., quantity 0 or invalid product config), reset shipping, tax, and total to 0
-                     // But keep the estimated time from shipping method if selected
                      calculatedShipping = 0;
                      calculatedTax = 0;
                      finalTotal = 0;
-                     // estimatedTime is already handled by shippingInfo lookup above
                  }
-
 
                 // Update the display elements
                 itemSubtotalDisplay.textContent = formatRupiah(itemSubtotal);
                 shippingCostDisplay.textContent = formatRupiah(calculatedShipping);
                 taxAmountDisplay.textContent = formatRupiah(calculatedTax);
                 finalTotalDisplay.textContent = formatRupiah(finalTotal);
-                estimatedTimeDisplay.textContent = estimatedTime; // Update estimated time display
-
+                estimatedTimeDisplay.textContent = estimatedTime;
             }
 
             // Add event listeners to input elements that affect price
-            quantityInput.addEventListener('input', updateEstimatedPrice); // Use 'input' for real-time updates
+            quantityInput.addEventListener('input', updateEstimatedPrice);
             paperTypeSelect.addEventListener('change', updateEstimatedPrice);
             finishingSelect.addEventListener('change', updateEstimatedPrice);
             sizeSelect.addEventListener('change', updateEstimatedPrice);
-            shippingMethodSelect.addEventListener('change', updateEstimatedPrice); // Add listener for shipping method
+            shippingMethodSelect.addEventListener('change', updateEstimatedPrice);
+
+
+            // Add event listener for the "Lanjutkan Pembayaran" button
+            continueButton.addEventListener('click', function(event) {
+                 // Basic form validation check
+                if (!orderForm.checkValidity()) {
+                    orderForm.reportValidity(); // Trigger browser's validation UI
+                    return; // Stop the process
+                }
+
+                // Recalculate prices one last time
+                updateEstimatedPrice();
+
+                // Recalculate values for storage based on current inputs
+                 const quantity = parseInt(quantityInput.value) || 0;
+                 const pricePerSingleItem = getItemPrice(paperTypeSelect.value, finishingSelect.value, sizeSelect.value);
+                 const itemSubtotal = quantity * pricePerSingleItem;
+
+                 const selectedShippingMethod = shippingMethodSelect.value;
+                 const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
+                 const calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0;
+                 const calculatedTax = itemSubtotal > 0 ? itemSubtotal * TAX_RATE_PLACEHOLDER : 0;
+                 const finalTotal = itemSubtotal > 0 ? itemSubtotal + calculatedShipping + calculatedTax : 0;
+                 const estimatedTime = shippingInfo.estimatedTime;
+
+                 // Gather all relevant data to pass to the payment page
+                 const orderData = {
+                     productName: "Cetak Fancy Paper",
+                     quantity: quantity,
+                     specificOptions: { // Data spesifik produk ini
+                         JenisKertas: paperTypeSelect.value !== "" ? paperTypeSelect.value : null, // Simpan null jika placeholder dipilih
+                         Ukuran: sizeSelect.value !== "" ? sizeSelect.value : null,
+                         Finishing: finishingSelect.value !== "" ? finishingSelect.value : null,
+                     },
+                     // Info Pelanggan dan Pengiriman
+                     customerName: customerNameInput.value,
+                     customerPhone: customerPhoneInput.value,
+                     customerEmail: customerEmailInput.value,
+                     customerAddress: customerAddressInput.value,
+                     shippingMethod: selectedShippingMethod,
+                     shippingMethodDisplay: shippingInfo.estimatedTime !== 'Pilih opsi pengiriman' ? shippingOptions[selectedShippingMethod]?.estimatedTime + ' (' + selectedShippingMethod.charAt(0).toUpperCase() + selectedShippingMethod.slice(1) + ')' : 'Belum dipilih', // Display string
+                     notes: notesInput.value,
+
+                     // Detail Ringkasan Harga
+                     itemSubtotal: itemSubtotal,
+                     shippingCost: calculatedShipping,
+                     taxAmount: calculatedTax,
+                     finalTotal: finalTotal,
+                     estimatedTime: estimatedTime
+                 };
+
+                 // Store the data in localStorage
+                 localStorage.setItem('currentOrderData', JSON.stringify(orderData));
+
+                 // Redirect to the payment page
+                 window.location.href = 'payment.html';
+             });
 
 
             // Call the function once when the page loads to set initial prices and time
             updateEstimatedPrice();
         });
     </script>
-    <!-- === Akhir Diperbaiki: Script Perkiraan Harga === -->
-
-    <!-- === Hapus: Script untuk Tambah ke Keranjang === -->
-    <!--
-    <script>
-         // ... Script Add to Cart ...
-    </script>
-     -->
-    <!-- ========================================= -->
-
-    <!-- === Hapus: Script untuk mengupdate jumlah item di Navbar === -->
-     <!--
-     <script>
-         // ... Script Navbar Count ...
-     </script>
-      -->
-     <!-- ======================================================== -->
 
   </body>
 </html>
