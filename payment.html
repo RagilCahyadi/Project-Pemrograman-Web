@@ -32,7 +32,7 @@
     <!--Bootstraps CSS-->
 
     <style>
-        /* Styling khusus untuk halaman pembayaran */
+        
         .payment-page-section {
             padding-top: 40px;
             padding-bottom: 40px;
@@ -41,11 +41,11 @@
         .payment-summary,
         .customer-details-summary,
         .payment-methods {
-             background-color: #e9ecef; /* Latar abu-abu muda */
+             background-color: #e9ecef; 
              border: 1px solid #ced4da;
              border-radius: 5px;
              padding: 20px;
-             margin-bottom: 20px; /* Jarak antar bagian */
+             margin-bottom: 20px; 
         }
          .payment-summary h4,
          .customer-details-summary h4,
@@ -65,21 +65,21 @@
              justify-content: space-between;
              margin-bottom: 5px;
              padding-bottom: 5px;
-             border-bottom: 1px dotted #a7c2a7; /* Garis putus-putus pemisah */
+             border-bottom: 1px dotted #a7c2a7; 
          }
          .price-breakdown li:last-child {
              border-bottom: none;
              margin-top: 10px;
              padding-top: 10px;
-             font-size: 1.2em; /* Font lebih besar untuk total */
+             font-size: 1.2em; 
              font-weight: bold;
-             border-top: 1px solid #a7c2a7; /* Garis solid di atas total */
+             border-top: 1px solid #a7c2a7; 
          }
           .price-breakdown li span:first-child {
-              font-weight: normal; /* Label tidak tebal */
+              font-weight: normal; 
           }
           .price-breakdown li:last-child span {
-               font-weight: bold; /* Label dan nilai tebal untuk total */
+               font-weight: bold; 
           }
 
          .customer-details-summary p {
@@ -90,15 +90,15 @@
              margin-bottom: 15px;
          }
 
-         /* Style for the "No order data" message */
+         
          #noOrderDataMessage {
              text-align: center;
-             color: #dc3545; /* Warna merah Bootstrap */
+             color: #dc3545; 
              font-weight: bold;
              margin-top: 30px;
              padding: 20px;
              border: 1px solid #dc3545;
-             background-color: #f8d7da; /* Latar merah muda Bootstrap */
+             background-color: #f8d7da; 
              border-radius: 5px;
          }
     </style>
@@ -108,7 +108,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary py-3">
       <div class="container">
-        <a class="navbar-brand" href="index.html"> <!-- Link ke halaman utama -->
+        <a class="navbar-brand" href="index.html"> 
           <img
             src="./assets/2.png"
             alt="Logo"
@@ -132,32 +132,32 @@
         <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a> 
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#about">About</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#about">About</a> 
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a> 
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a> 
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> 
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
+    
 
     <section class="payment-page-section">
         <div class="container">
 
             <h1 class="text-primary text-center mb-5">Ringkasan & Pembayaran Pesanan</h1>
 
-            <!-- Pesan jika data pesanan tidak ditemukan -->
+            
             <div id="noOrderDataMessage" style="display: none;">
                 Tidak ada data pesanan ditemukan. Silakan kembali ke halaman layanan untuk memulai pesanan baru.
                 <div class="mt-3">
@@ -166,16 +166,16 @@
             </div>
 
 
-            <!-- Detail Pesanan dan Opsi Pembayaran (Akan disembunyikan jika data pesanan tidak ada) -->
-            <div id="orderDetailsAndPayment" style="display: none;"> <!-- Default disembunyikan -->
+            
+            <div id="orderDetailsAndPayment" style="display: none;">
                 <div class="row g-4">
 
-                    <!-- Kolom Kiri: Ringkasan Pesanan -->
+                    
                     <div class="col-md-6">
                         <div class="payment-summary">
                            <h4>Ringkasan Pesanan Anda</h4>
                             <ul class="price-breakdown">
-                                <!-- Detail produk akan diisi oleh script -->
+                    
                                 <li>
                                     <span>Produk:</span>
                                     <span id="summaryProductName">-</span>
@@ -184,26 +184,28 @@
                                     <span>Jumlah:</span>
                                     <span id="summaryQuantity">-</span>
                                 </li>
-                                <!-- Opsi spesifik akan diisi oleh script jika ada -->
-                                <!-- Elemen-elemen li baru akan ditambahkan di sini oleh script -->
-                                <!-- End specific options -->
-                                <li class="mt-3 pt-3 border-top border-secondary"> <!-- Garis pemisah sebelum subtotal -->
+                           
+                                <li class="mt-3 pt-3 border-top border-secondary"> 
                                     <span>Subtotal Item:</span>
                                     <span id="summaryItemSubtotal">Rp 0</span>
+                                </li>
+                                <li id="summaryPromoDiscountRow"  style="display: none;">
+                                    <span>Diskon Promo (<span id="summaryPromoName">-</span>):</span>
+                                    <span id="summaryPromoDiscount" class="text-danger">Rp 0</span>
                                 </li>
                                 <li>
                                     <span>Estimasi Sampai:</span>
                                     <span id="summaryEstimatedTime">Pilih opsi pengiriman</span>
                                 </li>
                                 <li>
-                                    <span>Pengiriman (<span id="summaryShippingMethod">-</span>):</span> <!-- Metode pengiriman -->
+                                    <span>Pengiriman (<span id="summaryShippingMethod">-</span>):</span>
                                     <span id="summaryShippingCost">Rp 0</span>
                                 </li>
                                  <li>
-                                    <span>Pajak:</span> <!-- Pajak -->
+                                    <span>Pajak:</span> 
                                     <span id="summaryTaxAmount">Rp 0</span>
                                 </li>
-                                <li class="cart-total"> <!-- Total akhir -->
+                                <li class="cart-total"> 
                                     <span>Total Estimasi:</span>
                                     <span id="summaryFinalTotal" class="text-success">Rp 0</span>
                                 </li>
@@ -222,7 +224,7 @@
                          </div>
                     </div>
 
-                    <!-- Kolom Kanan: Metode Pembayaran -->
+                   
                     <div class="col-md-6">
                         <div class="payment-methods">
                             <h4>Pilih Metode Pembayaran</h4>
@@ -252,7 +254,7 @@
                                 <p class="form-text text-muted mb-0">Khusus untuk opsi pengambilan di toko.</p>
                             </div>
 
-                            <!-- Tambahkan metode pembayaran lain jika ada -->
+                      
 
                             <div class="d-grid gap-2 mt-4">
                                 <button type="button" class="btn btn-primary btn-lg" id="confirmPaymentButton">Konfirmasi Pesanan & Pilih Pembayaran</button>
@@ -263,11 +265,11 @@
                 </div>
             </div>
 
-        </div> <!-- End .container -->
+        </div> 
     </section>
 
 
-       <!-- Footer (Sama dengan halaman lain) -->
+
         <section class="footer bg-primary mt-5">
           <div class="container">
             <div class="footer-box">
@@ -322,11 +324,10 @@
     ></script>
     <!--Bootstraps JS-->
 
-    <!-- Script untuk Halaman Pembayaran -->
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-             // Fungsi untuk memformat angka ke Rupiah (digunakan kembali dari halaman order)
              function formatRupiah(number) {
                 const num = parseFloat(number) || 0;
                 return new Intl.NumberFormat('id-ID', {
@@ -336,97 +337,100 @@
                 }).format(num);
              }
 
-            // Ambil data pesanan yang tersimpan dari localStorage
+        
             const storedOrderData = localStorage.getItem('currentOrderData');
             const noOrderMessage = document.getElementById('noOrderDataMessage');
             const orderDetailsSection = document.getElementById('orderDetailsAndPayment');
 
             if (!storedOrderData) {
-                // Jika data tidak ditemukan, tampilkan pesan dan sembunyikan detail
+              
                 noOrderMessage.style.display = 'block';
                 orderDetailsSection.style.display = 'none';
             } else {
-                // Data ditemukan, sembunyikan pesan dan tampilkan detail
+                
                 noOrderMessage.style.display = 'none';
                 orderDetailsSection.style.display = 'block';
 
                 const orderData = JSON.parse(storedOrderData);
 
-                // Isi bagian Ringkasan Pesanan
                 document.getElementById('summaryProductName').textContent = orderData.productName || '-';
                 document.getElementById('summaryQuantity').textContent = orderData.quantity || '-';
 
-                // Isi opsi spesifik secara dinamis
-                const specificOptionsContainer = document.querySelector('.payment-summary ul'); // Ambil elemen UL
-                // Hapus opsi dinamis yang mungkin ada sebelumnya (untuk keandalan)
-                specificOptionsContainer.querySelectorAll('.dynamic-option-item').forEach(el => el.remove()); // Tambahkan class '.dynamic-option-item' saat membuat li
+              
+                const specificOptionsContainer = document.querySelector('.payment-summary ul'); 
+               
+                specificOptionsContainer.querySelectorAll('.dynamic-option-item').forEach(el => el.remove()); 
 
-                // Tambahkan opsi spesifik dari data yang tersimpan
+                
                 if (orderData.specificOptions) {
                      for (const [key, value] of Object.entries(orderData.specificOptions)) {
-                         // Periksa apakah nilai ada dan bukan placeholder default
+                         
                          if (value && value !== '-- Pilih Salah Satu --' && value !== '-- Pilih Ukuran atau Masukkan di Catatan --' && value !== '-- Pilih Finishing (jika ada) --' && value !== '-- Pilih Jenis Bahan --' && value !== '-- Pilih Finishing --' && value !== '-- Pilih Jenis Produk --' && value !== '-- Pilih Bahan Stiker (Jika Label) --' && value !== '-- Pilih Jenis Potong (Jika Label) --' && value !== '-- Pilih Sisi Cetak --' && value !== '') {
 
                              const listItem = document.createElement('li');
-                             listItem.classList.add('dynamic-option-item'); // Tambahkan class agar mudah dihapus nanti
+                             listItem.classList.add('dynamic-option-item');
 
-                             // Format nama kunci (key) agar lebih mudah dibaca, misal paperType jadi Paper Type
-                             const cleanKey = key.replace(/([A-Z])/g, ' $1').trim(); // Tambahkan spasi sebelum huruf kapital
-                             const formattedKey = cleanKey.charAt(0).toUpperCase() + cleanKey.slice(1); // Kapitalisasi huruf pertama
+                             
+                             const cleanKey = key.replace(/([A-Z])/g, ' $1').trim(); 
+                             const formattedKey = cleanKey.charAt(0).toUpperCase() + cleanKey.slice(1); 
 
                              listItem.innerHTML = `<span>${formattedKey}:</span><span>${value}</span>`;
 
-                             // Sisipkan sebelum item subtotal, yang biasanya setelah semua opsi
+                             
                              const subtotalItem = document.getElementById('summaryItemSubtotal').parentElement;
                              specificOptionsContainer.insertBefore(listItem, subtotalItem);
                          }
                      }
                 }
+                
+            const promoRowElement = document.getElementById('summaryPromoDiscountRow');
+                const promoNameElement = document.getElementById('summaryPromoName');
+                const promoDiscountElement = document.getElementById('summaryPromoDiscount');
 
+                if (orderData.promoApplied && orderData.promoApplied !== "Tidak ada" && parseFloat(orderData.promoDiscountAmount) > 0) {
+                    promoNameElement.textContent = orderData.promoApplied.split(' (')[0]; 
+                    promoDiscountElement.textContent = formatRupiah(-orderData.promoDiscountAmount); 
+                    promoRowElement.style.display = 'flex'; 
+                } else {
+                    promoRowElement.style.display = 'none'; 
+                }
 
                 document.getElementById('summaryItemSubtotal').textContent = formatRupiah(orderData.itemSubtotal);
                 document.getElementById('summaryEstimatedTime').textContent = orderData.estimatedTime || 'N/A';
-                document.getElementById('summaryShippingMethod').textContent = orderData.shippingMethodDisplay || '-'; // Gunakan nama yang diformat
+                document.getElementById('summaryShippingMethod').textContent = orderData.shippingMethodDisplay || '-'; 
                 document.getElementById('summaryShippingCost').textContent = formatRupiah(orderData.shippingCost);
                 document.getElementById('summaryTaxAmount').textContent = formatRupiah(orderData.taxAmount);
                 document.getElementById('summaryFinalTotal').textContent = formatRupiah(orderData.finalTotal);
 
 
-                // Isi bagian Info Kontak & Pengiriman
+             
                 document.getElementById('displayCustomerName').textContent = orderData.customerName || '-';
                 document.getElementById('displayCustomerPhone').textContent = orderData.customerPhone || '-';
                 document.getElementById('displayCustomerEmail').textContent = orderData.customerEmail || '-';
                 document.getElementById('displayCustomerAddress').textContent = orderData.customerAddress || '-';
-                document.getElementById('displayShippingMethod').textContent = orderData.shippingMethodDisplay || '-'; // Gunakan nama yang diformat
+                document.getElementById('displayShippingMethod').textContent = orderData.shippingMethodDisplay || '-'; 
                 document.getElementById('displayNotes').textContent = orderData.notes || '-';
 
 
-                // Menangani klik tombol Konfirmasi Pembayaran
+   
                 const confirmPaymentButton = document.getElementById('confirmPaymentButton');
                 confirmPaymentButton.addEventListener('click', function() {
                     const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-                    // --- BAGIAN INI ADALAH TEMPAT INTEGRASI PEMBAYARAN SEBENARNYA ---
-                    // Untuk versi frontend-only ini, kita hanya akan menampilkan alert dan menghapus data storage.
-                    // Dalam aplikasi nyata, Anda akan mengirim data pesanan ini (termasuk metode yang dipilih)
-                    // ke backend Anda untuk diproses dan diintegrasikan dengan payment gateway.
+                   
 
                     alert(`Pesanan Anda (${orderData.productName}) telah dikonfirmasi!\nTotal Estimasi: ${formatRupiah(orderData.finalTotal)}\nMetode Pembayaran: ${selectedPaymentMethod}\n\nTim kami akan segera menghubungi Anda melalui WhatsApp (${orderData.customerPhone}) untuk detail pembayaran dan konfirmasi file desain.`);
 
-                    // Hapus localStorage setelah menampilkan pesan (mensimulasikan pesanan selesai)
                     localStorage.removeItem('currentOrderData');
 
-                    // Opsional: Arahkan ulang kembali ke halaman utama atau halaman terima kasih
-                    window.location.href = 'index.html'; // Arahkan ke home
 
-                    // --- AKHIR DARI SIMULASI FRONTEND-ONLY ---
+                    window.location.href = 'index.html'; 
+
                 });
 
-            } // Akhir dari if/else check storedOrderData
+            } 
         });
     </script>
-    <!-- === Akhir Script untuk Halaman Pembayaran === -->
-
 
   </body>
 </html>

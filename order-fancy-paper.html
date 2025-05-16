@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id"> <!-- Diubah ke id -->
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,25 @@
     />
     <!--FavIcon-->
 
-    <title>Checkout Cetak Fancy Paper - RNR Digital Printing</title>
+    <title>RNR Digital Printing</title>
 
     <!--CSS-->
     <link rel="stylesheet" href="./css/style.css" />
     <!--CSS-->
-
+    
     <!-- Font -->
      <link rel="stylesheet" href="">
     <!-- Font -->
+
+    <!-- Animate Css -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Animate Css -->
+
+    <!-- Animate Scroll CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Animate Scroll CSS -->
 
     <!--Bootstraps CSS-->
     <link
@@ -32,111 +42,55 @@
     <!--Bootstraps CSS-->
 
     <style>
-        /* Optional: Tambahkan styling khusus untuk halaman form */
-        .order-page-section {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        .product-image-preview {
-            border: 1px solid #ccc; /* Add border around carousel */
-            border-radius: 5px; /* Match form border radius */
-            overflow: hidden; /* Ensure corners are rounded */
-            background-color: #f8f9fa; /* Light background */
-            /* Optional: Adjust padding if needed inside */
-            /* padding: 10px; */
+        .detail-product{
+            text-align: justify;
         }
 
-         /* Style for carousel images to be responsive */
-         .carousel-item img {
-            width: 100%; /* Make image take full width of carousel item */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove extra space below image */
-            /* Optional: set a max-height if needed, might cause empty space or need object-fit */
-            /* max-height: 400px; */
-            /* object-fit: contain; /* or 'cover' depending on desired effect */
-         }
-
-        .product-config-form {
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-        /* Styling for the moved details section below the carousel */
-        .details-below-carousel { /* Generic class */
-            margin-top: 20px; /* Add some space above the text */
-            /* Add padding or other styles if needed */
-            padding-top: 15px;
-            border-top: 1px solid #eee; /* Optional: Add a separator line */
+        .product-form{
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
         }
 
-        .details-below-carousel ul {
-            margin-bottom: 1rem; /* Add space below lists */
+        .checkout-summary{
+          background-color: #e9ecef;
+          padding: 20px;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
         }
 
-        /* === Styling for the new checkout summary section === */
-        .checkout-summary {
-             background-color: #e9ecef; /* Light grey background */
-             border: 1px solid #ced4da;
-             border-radius: 5px;
-             padding: 20px; /* Increased padding */
-             margin-top: 20px; /* Space above this section */
-        }
-         .checkout-summary h4 {
-             margin-top: 0; /* Remove top margin from title */
-             margin-bottom: 15px; /* Space below title */
-             text-align: center;
-         }
-        /* === End Styling for the new checkout summary section === */
-
-
-        .price-summary { /* Keep existing price summary styles, now inside checkout-summary */
-            /* background-color: #d4edda; /* Light green background - Optional, can remove if inside checkout-summary */
-            border: none; /* Remove border if inside checkout-summary */
-            padding: 0; /* Remove padding if inside checkout-summary */
-            border-radius: 0; /* Remove border-radius if inside checkout-summary */
-            margin-bottom: 0; /* Space below price summary list */
-        }
-         .price-summary h4 {
-             margin-bottom: 10px;
-             text-align: center; /* Center title */
-         }
-         .price-breakdown {
-             list-style: none;
-             padding: 0;
-             margin: 0;
-         }
          .price-breakdown li {
              display: flex;
              justify-content: space-between;
              margin-bottom: 5px;
              padding-bottom: 5px;
-             border-bottom: 1px dotted #a7c2a7; /* Dotted line for separation */
+             border-bottom: 1px dotted #a7c2a7;
          }
          .price-breakdown li:last-child {
              border-bottom: none;
              margin-top: 10px;
              padding-top: 10px;
-             font-size: 1.2em; /* Larger font for total */
+             font-size: 1.2em;
              font-weight: bold;
-             border-top: 1px solid #a7c2a7; /* Solid line above total */
+             border-top: 1px solid #a7c2a7;
          }
           .price-breakdown li span:first-child {
-              font-weight: normal; /* Label not bold */
+              font-weight: normal;
           }
           .price-breakdown li:last-child span {
-               font-weight: bold; /* Both label and value bold for total */
+               font-weight: bold; 
           }
-
-
     </style>
 
   </head>
-  <body>
+<body>
+
+  
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary py-3">
+    <nav class="navbar navbar-expand-lg bg-primary py-3 animate__animated animate__fadeInDown">
       <div class="container">
-        <a class="navbar-brand" href="index.html"> <!-- Link kembali ke halaman utama -->
+        <a class="navbar-brand animate__animated animate__fadeInLeft animate__delay-1s" href="index.html">
           <img
             src="./assets/2.png"
             alt="Logo"
@@ -146,7 +100,7 @@
           />
           <span class="fs-3 fw-bold text-white">RNR Digital Printing</span>
         </a>
-         <button
+        <button
           class="navbar-toggler bg-white shadow-none"
           type="button"
           data-bs-toggle="collapse"
@@ -158,132 +112,131 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
+          <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#about">About</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a> <!-- Link ke section in index -->
+              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
+    <!-- Navbar -->
 
     <section class="order-page-section">
         <div class="container">
-
-            <h1 class="text-primary text-center mb-5">Checkout Cetak Fancy Paper</h1>
-
-            <div class="row g-4"> <!-- Use g-4 for gutter spacing -->
-
-                <!-- Left Column: Product Image/Preview Carousel + Details Below -->
+            <h1 class="display-5 fw-bold text-center mb-5">Halaman Pemesanan Fancy Paper</h1>
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="product-image-preview">
-                        <!-- Bootstrap Carousel goes here -->
-                        <div id="fancyPaperCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <!-- Indicators -->
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
 
-                            <!-- Carousel Inner -->
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="./assets/7.jpeg" class="d-block w-100" alt="Fancy Paper Example 1">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="./assets/fancy_paper_example_2.jpg" class="d-block w-100" alt="Fancy Paper Example 2">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="./assets/fancy_paper_example_3.png" class="d-block w-100" alt="Fancy Paper Example 3">
-                              </div>
+                    <!-- Carousel -->
+                    <div id="fancyPaperCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img src="./assets/12.jpeg" class="d-block w-100" alt="Fancy Paper Image">
                             </div>
-
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
+                            <div class="carousel-item">
+                            <img src="./assets/13.jpeg" class="d-block w-100" alt="Fancy Paper Image">
+                            </div>
+                            <div class="carousel-item">
+                            <img src="./assets/kemasan.jpeg" class="d-block w-100" alt="Fancy Paper Image">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#fancyPaperCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
+                    <!-- Carousel -->
 
-                    <!-- Moved Section for Product Details -->
-                    <div class="details-below-carousel">
-                         <p class="text-muted small text-center fst-italic">
-                          
-                         </p>
-
-                        <h3>Detail Produk Cetak Fancy Paper</h3>
-                        <p class="lh-lg">
-                           Cetak Fancy Paper adalah pilihan tepat untuk memberikan kesan mewah dan eksklusif pada cetakan Anda. Berbeda dari kertas HVS atau Art Paper biasa, Fancy Paper memiliki tekstur, corak, atau efek khusus yang unik. Layanan kami mencakup cetak pada berbagai jenis Fancy Paper seperti Linen (bertekstur seperti kain), Jasmine (dengan kilau mutiara), Concorde (bertekstur garis), Hammer (bertekstur seperti permukaan palu), dan jenis eksklusif lainnya sesuai ketersediaan.
-                        </p>
-                        <p class="lh-lg">
-                            Sangat cocok digunakan untuk:
-                        </p>
-                        <ul>
-                            <li>Undangan Pernikahan atau Acara Spesial</li>
-                            <li>Kartu Nama Premium</li>
-                            <li>Sertifikat atau Piagam Eksklusif</li>
-                            <li>Kartu Ucapan atau Greeting Card</li>
-                            <li>Kop Surat atau Amplop Premium</li>
-                            <li>Flyer atau Brosur yang Ingin Tampil Beda</li>
-                        </ul>
-                        <p class="lh-lg">
-                            Kami menggunakan teknologi cetak digital terbaru untuk menghasilkan detail tajam dan warna yang akurat di atas permukaan Fancy Paper. Upload desain Anda dalam format yang direkomendasikan (PDF, AI, CDR) untuk hasil optimal. Jika Anda membutuhkan ukuran custom atau finishing tambahan seperti pond (cutting bentuk) atau hot foil, silakan cantumkan di catatan tambahan atau hubungi tim kami.
-                        </p>
-                         <h4>Jenis-Jenis Fancy Paper</h4>
-                         <ul>
-                             <li>**Linen:** Tekstur permukaan menyerupai kain linen, memberikan kesan klasik dan elegan.</li>
-                             <li>**Jasmine:** Permukaan halus dengan kilau mutiara, terlihat mewah dan berkilau.</li>
-                             <li>**Concorde:** Tekstur garis-garis sejajar yang halus, memberikan sentuhan profesional.</li>
-                             <li>**Hammer:** Tekstur unik seperti bekas pukulan palu, memberikan kesan artistik.</li>
-                             <li>*(Sebutkan jenis lain yang Anda sediakan jika ada)*</li>
-                         </ul>
-
-                        <h4>Tips Desain</h4>
-                        <p>Untuk hasil terbaik pada Fancy Paper, pertimbangkan hal berikut:</p>
-                         <ul>
+                    <div class="detail-product mt-5 text-justify">
+                      <nav id="navbar-detail-product" class="navbar navbar-light bg-light px-3 ">
+                    <a class="navbar-brand" href="#"></a>
+                    <ul class="nav nav-pills mx-auto mb">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#scrollspyHeading1">Detail Product</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#scrollspyHeading2">Jenis Product</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#scrollspyHeading3">Tipe Desain</a>
+                      </li>
+                    </ul>
+                  </nav>
+                 
+                  <div data-bs-spy="scroll" data-bs-target="#navbar-detail-product" data-bs-offset="0" class="scrollspy-example mt-5" tabindex="0">
+                    <h4 id="scrollspyHeading1">Detail Produk Cetak Fancy Paper</h4>
+                      <p class="lh-lg">
+                        Cetak Fancy Paper adalah pilihan tepat untuk memberikan kesan mewah dan eksklusif pada cetakan Anda. Berbeda dari kertas HVS atau Art Paper biasa, Fancy Paper memiliki tekstur, corak, atau efek khusus yang unik. Layanan kami mencakup cetak pada berbagai jenis Fancy Paper seperti Linen (bertekstur seperti kain), Jasmine (dengan kilau mutiara), Concorde (bertekstur garis), Hammer (bertekstur seperti permukaan palu), dan jenis eksklusif lainnya sesuai ketersediaan.
+                      </p>
+                      <p class="lh-lg">
+                        Sangat cocok digunakan untuk:
+                      </p>
+                      <ul class="mb-5">
+                        <li>Undangan Pernikahan atau Acara Spesial</li>
+                        <li>Kartu Nama Premium</li>
+                        <li>Sertifikat atau Piagam Eksklusif</li>
+                        <li>Kartu Ucapan atau Greeting Card</li>
+                        <li>Kop Surat atau Amplop Premium</li>
+                        <li>Flyer atau Brosur yang Ingin Tampil Beda</li>
+                      </ul>
+                    <h4 id="scrollspyHeading2">Jenis-Jenis Fancy Paper</h4>
+                     <p class="lh-lg">
+                        Kami menggunakan teknologi cetak digital terbaru untuk menghasilkan detail tajam dan warna yang akurat di atas permukaan Fancy Paper. Upload desain Anda dalam format yang direkomendasikan (PDF, AI, CDR) untuk hasil optimal. Jika Anda membutuhkan ukuran custom atau finishing tambahan seperti pond (cutting bentuk) atau hot foil, silakan cantumkan di catatan tambahan atau hubungi tim kami.
+                     </p>
+                      <ul class="mb-5">
+                              <li><b>Linen: </b>permukaan menyerupai kain linen, mem berikan kesan klasik dan elegan.</li>
+                              <li><b>Jasmine: </b>Permukaan halus dengan kilau mutiara, terlihat mewah dan berkilau.</li>
+                              <li><b>Concorde: </b>Tekstur garis-garis sejajar yang halus, memberikan sentuhan profesional.</li>
+                              <li><b>Hammer: </b>Tekstur unik seperti bekas pukulan palu, memberikan kesan artistik.</li>
+                      </ul>
+                    <h4 id="scrollspyHeading3">Tips Desain</h4>
+                    <p>Untuk hasil terbaik pada Fancy Paper, pertimbangkan hal berikut:</p>
+                      <ul>
                              <li>Desain dengan resolusi tinggi (minimal 300 DPI).</li>
                              <li>Gunakan mode warna CMYK.</li>
                              <li>Perhatikan area bleed (area lebih yang akan terpotong) jika desain Anda full color sampai pinggir.</li>
                              <li>Beberapa jenis Fancy Paper mungkin mempengaruhi kecerahan warna, terutama warna-warna gelap.</li>
-                         </ul>
+                      </ul>
+                  </div>
 
-                    </div>
                 </div>
 
-                <!-- Right Column: Configuration Form -->
+                </div>
+
                 <div class="col-md-6">
-                    <div class="product-config-form rounded">
-                        <h3>Konfigurasi Pesanan</h3>
-                        <p class="text-muted mb-4">Sesuaikan pilihan cetak Anda.</p>
+                  <div class="product-form">
+                    <h3 class="text-center">Form Pemesanan</h3>
+                    <p class="text-muted mb-4">Sesuaikan pilihan cetakan anda</p>
 
-                         <!-- Formulir Pemesanan Fancy Paper -->
-                         <!-- action dan method dihapus/diabaikan karena submit ditangani JS -->
-                        <form id="fancyPaperOrderForm" enctype="multipart/form-data">
-                           <input type="hidden" name="product" value="Cetak Fancy Paper">
+                    <form id="fancyPaperOrderForm" enctype="multipart/form-data">
+                      <input type="hidden" name="product" value="Cetak Fancy Paper">
 
-                           <div class="mb-3">
-                             <label for="paperType" class="form-label">Pilih Jenis Fancy Paper (opsional)</label>
-                             <select class="form-select" id="paperType" name="paperType">
-                                 <option value="">-- Pilih Salah Satu --</option>
+                      <div class="mb-3">
+                             <label for="paperType" class="form-label">Pilih Jenis Fancy Paper <span class="text-danger">*</span></label>
+                             <select class="form-select" id="paperType" name="paperType" required>
+                                 <option value="" disabled>-- Pilih Salah Satu --</option>
                                  <option value="Linen">Linen</option>
                                  <option value="Jasmine">Jasmine</option>
                                  <option value="Concorde">Concorde</option>
@@ -293,9 +246,9 @@
                            </div>
 
                             <div class="mb-3">
-                               <label for="size" class="form-label">Ukuran (opsional)</label>
-                               <select class="form-select" id="size" name="size">
-                                   <option value="">-- Pilih Ukuran atau Masukkan di Catatan --</option>
+                               <label for="size" class="form-label">Ukuran <span class="text-danger">*</span></label>
+                               <select class="form-select" id="size" name="size" required>
+                                   <option value="" disabled>-- Pilih Ukuran atau Masukkan di Catatan --</option>
                                    <option value="A4">A4 (210 x 297 mm)</option>
                                    <option value="A5">A5 (148 x 210 mm)</option>
                                    <option value="Custom">Ukuran Custom (Lihat Catatan)</option>
@@ -303,16 +256,16 @@
                              </div>
 
                             <div class="mb-3">
-                                <label for="finishing" class="form-label">Finishing (opsional)</label>
-                                <select class="form-select" id="finishing" name="finishing">
-                                    <option value="">-- Pilih Finishing (jika ada) --</option>
+                                <label for="finishing" class="form-label">Finishing <span class="text-danger">*</span></label>
+                                <select class="form-select" id="finishing" name="finishing" required>
+                                    <option value="" disabled>-- Pilih Finishing (jika ada) --</option>
                                     <option value="None">Tanpa Finishing</option>
                                     <option value="Laminasi Doff">Laminasi Doff</option>
                                     <option value="Laminasi Glossy">Laminasi Glossy</option>
                                 </select>
-                              </div>
+                            </div>
 
-                           <div class="mb-3">
+                            <div class="mb-3">
                              <label for="quantity" class="form-label">Jumlah Pesanan (pcs/lembar) <span class="text-danger">*</span></label>
                              <input type="number" class="form-control" id="quantity" name="quantity" min="1" required value="1">
                            </div>
@@ -328,14 +281,13 @@
                              <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Contoh: Ukuran custom 10x15 cm, harap dipotong sesuai pola"></textarea>
                            </div>
 
-                            <!-- Bidang Kontak & Pengiriman -->
-                            <hr class="my-4">
+                           <hr class="my-4">
                             <h5 class="mb-3">Info Kontak & Pengiriman</h5>
 
                             <div class="mb-3">
                                <label for="shippingMethod" class="form-label">Pilih Opsi Pengiriman <span class="text-danger">*</span></label>
                                <select class="form-select" id="shippingMethod" name="shippingMethod" required>
-                                   <option value="">-- Pilih Opsi --</option>
+                                   <option value="" disabled>-- Pilih Opsi --</option>
                                    <option value="pickup">Ambil Sendiri di Toko (Gratis)</option>
                                    <option value="standard">Kurir Standar (Estimasi 2-3 Hari Kerja)</option>
                                    <option value="express">Kurir Express (Estimasi 1-2 Hari Kerja)</option>
@@ -352,19 +304,22 @@
                               <small class="form-text text-muted">Kami akan menghubungi Anda melalui nomor ini.</small>
                             </div>
                              <div class="mb-3">
-                              <label for="customerEmail" class="form-label">Email (opsional)</label>
-                              <input type="email" class="form-control" id="customerEmail" name="customerEmail">
+                              <label for="customerEmail" class="form-label">Email <span class="text-danger">*</span></label>
+                              <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
                             </div>
                              <div class="mb-3">
-                              <label for="customerAddress" class="form-label">Alamat Pengiriman (opsional)</label>
-                              <textarea class="form-control" id="customerAddress" name="customerAddress" rows="3"></textarea>
+                              <label for="customerAddress" class="form-label">Alamat Pengiriman</label>
+                              <textarea class="form-control" id="customerAddress" name="customerAddress" rows="3" required></textarea>
                               <small class="form-text text-muted">Isi jika pesanan perlu dikirim.</small>
                             </div>
+                             <div class="input-group "> <input type="text" class="form-control" placeholder="Promo code" id="promoCodeInput">
+                            <button type="submit" class="btn btn-secondary" id="redeemPromoButton">Redeem</button> 
+                            </div>
+                            
 
-                           <!-- Checkout Summary Section -->
-                           <div class="checkout-summary mt-4">
-                               <h4>Ringkasan Pesanan</h4>
-                               <div class="price-summary">
+                               <div class="checkout-summary mt-4">
+                               <h4 class="mb-3 text-center">Ringkasan Pesanan</h4>
+                               <div class="price-summary me-5">
                                     <ul class="price-breakdown">
                                         <li>
                                             <span>Subtotal Item:</span>
@@ -382,6 +337,10 @@
                                             <span>Pajak:</span>
                                             <span id="taxAmount">Rp 0</span>
                                         </li>
+                                        <li>
+                                            <span>Promo:</span>
+                                            <span id="promoDiscountDisplay">Rp 0</span>
+                                        </li>
                                         <li class="cart-total">
                                             <span>Total Estimasi:</span>
                                             <span id="finalTotal" class="text-success">Rp 0</span>
@@ -394,267 +353,327 @@
                                <div class="d-grid gap-2 mt-4">
                                  <button type="button" class="btn btn-primary btn-lg" id="continueToPaymentButton">Lanjutkan Pembayaran</button> <!-- Diubah type="button" dan diberi ID -->
                                  <a href="index.html#services" class="btn btn-secondary btn-lg">Kembali ke Layanan</a>
-                               </div>
-                           </div>
-                        </form>
-                    </div>
+                            </div>
+                    </form>
+                  </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+
     <!-- Footer -->
-    <section class="footer bg-primary mt-5">
-        <div class="container">
-            <div class="footer-box">
-                <div class="row justify-content-between row-gap-4">
-                    <div class="col col-md-4 col-12 text-white">
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="./assets/2.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
-                            <span class="fs-4 fw-bold">RNR Digital Printing</span>
-                        </div>
-                        <p class="lh-lg m-0">Butuh cetak cepat dan hasil keren? Serahkan pada RNR Digital Printing - partner cetak andalan kamu!</p>
-                    </div>
-                    <div class="col col-md-2 col-12 d-flex flex-column text-white gap-2">
-                        <h4 class="fw-bold">Menu</h4>
-                        <a href="index.html#home" class="nav-bot text-white text-decoration-none">Home</a>
-                        <a href="index.html#about" class="nav-bot text-white text-decoration-none">About</a>
-                        <a href="index.html#order-guide" class="nav-bot text-white text-decoration-none">How To Order</a>
-                        <a href="index.html#services" class="nav-bot text-white text-decoration-none">Services</a>
-                        <a href="index.html#faq" class="nav-bot text-white text-decoration-none">FAQ</a>
-                    </div>
-                    <div class="col col-md-4 col-12 d-flex flex-column text-white gap-2 lh-lg">
-                        <h4 class="fw-bold">Contact Us</h4>
-                        <address>
-                            <p class="m-0 d-flex align-items-center gap-2">Email: <a href="mailto:digitalprinting@rnr.tugas1.id" class="text-white">digitalprinting@rnr.tugas1.id</a></p>
-                            <p class="m-0 d-flex align-items-center gap-2">Phone: <a href="tel:+6285156963404" class="text-white">0851-5696-3404</a></p>
-                            <p class="m-0 d-flex align-items-center gap-2">Address: Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik Regency, East Java 61122</p>
-                        </address>
-                    </div>
+        <section class="footer bg-primary">
+          <div class="container">
+            <div class="footer-box" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+              <div class="row justify-content-between row-gap-4">
+                <div class="col col-md-4 col-12 text-white">
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                    src="./assets/2.png"
+                    alt="Logo"
+                    width="30"
+                    height="30"
+                    class="d-inline-block align-text-top"
+                  />
+                  <span class="fs-4 fw-bold">RNR Digital Printing</span>
+                  </div>
+                  <p class="lh-lg m-0">Butuh cetak cepat dan hasil keren? Serahkan pada RNR Digital Printing - partner cetak andalan kamu!</p>
                 </div>
+                <div class="col col-md-2 col-12 d-flex flex-column text-white gap-2">
+                  <h4 class="fw-bold">Menu</h4>
+                  <a href="#home" class="nav-bot text-white text-decoration-none">Home</a>
+                  <a href="#about" class="nav-bot text-white text-decoration-none">About</a>
+                  <a href="#order-guide" class="nav-bot text-white text-decoration-none">Order Guide</a>
+                  <a href="#services" class="nav-bot text-white text-decoration-none">Services</a>
+                  <a href="#faq" class="nav-bot text-white text-decoration-none">FAQ</a>
+                </div>
+                <div class="col col-md-4 col-12 d-flex flex-column text-white gap-2 lh-lg">
+                  <h4 class="fw-bold">Contact Us</h4>
+                  <address>
+                    <p class="m-0 d-flex align-items-center gap-2">Email: <a href="mailto:digitalprinting@rnr.tugas1.id" class="text-white">digitalprinting@rnr.tugas1.id</a></p>  
+                    <p class="m-0 d-flex align-items-center gap-2">Phone: <a href="tel:+6285156963404" class="text-white">0851-5696-3404</a></p>
+                    <p class="m-0 d-flex align-items-center gap-2">Address: Kompleks PT. Semen Indonesia (Persero) Tbk, Jl. Veteran, Kb. Dalem, Sidomoro, Kebomas, Gresik Regency, East Java 61122</p>
+                  </address>
+                </div>
+              </div>
             </div>
+
             <div class="copyright text-white text-center mt-5">
-                <p>© Copyright by <span class="fw-bold">RNR Enterprise</span> 2025, All Rights Reserved.</p>
-                <p>Made With <span>❤</span></p>
+              <p>&copy; Copyright by <span class="fw-bold">RNR Enterprise</span> 2025, All Rights Reserved.</p>
+              <p>Made With <span>&#10084;</span></p>
             </div>
-        </div>
-    </section>
-    <!-- Footer -->
 
-    <!--Bootstraps JS-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <!--Bootstraps JS-->
+          </div>
+        </section>
+       <!-- Footer -->
 
-    <!-- Script Perkiraan Harga dan Redirect ke Payment Page -->
+    <!-- Animate Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get references to price display elements
-            const itemSubtotalDisplay = document.getElementById('itemSubtotal');
-            const shippingCostDisplay = document.getElementById('shippingCost');
-            const taxAmountDisplay = document.getElementById('taxAmount');
-            const finalTotalDisplay = document.getElementById('finalTotal');
-            const estimatedTimeDisplay = document.getElementById('estimatedTime');
-
-            // Get references to relevant input elements
-            const quantityInput = document.getElementById('quantity');
-            const paperTypeSelect = document.getElementById('paperType');
-            const finishingSelect = document.getElementById('finishing');
-            const sizeSelect = document.getElementById('size');
-            const shippingMethodSelect = document.getElementById('shippingMethod');
-            const customerNameInput = document.getElementById('customerName');
-            const customerPhoneInput = document.getElementById('customerPhone');
-            const customerEmailInput = document.getElementById('customerEmail');
-            const customerAddressInput = document.getElementById('customerAddress');
-            const notesInput = document.getElementById('notes');
-            const continueButton = document.getElementById('continueToPaymentButton');
-            const orderForm = document.getElementById('fancyPaperOrderForm');
-
-
-            // Define costs and times (REPLACE WITH YOUR ACTUAL PRICING LOGIC)
-            const TAX_RATE_PLACEHOLDER = 0.10; // Example 10% tax rate
-
-            // Define shipping options, costs, and estimated times (Consistent across order pages)
-            const shippingOptions = {
-                 '': { cost: 0, estimatedTime: 'Pilih opsi pengiriman' }, // Default state
-                 'pickup': { cost: 0, estimatedTime: 'Siap diambil hari ini/besok (konfirmasi)' },
-                 'standard': { cost: 15000, estimatedTime: '2-3 Hari Kerja' }, // Example cost
-                 'express': { cost: 30000, estimatedTime: '1-2 Hari Kerja' } // Example cost
-            };
-
-             // Define base prices/cost multipliers per item configuration (REPLACE THESE)
-             function getItemPrice(itemType, finishing, size) { // Parameters specific to Fancy Paper
-                 // --- LOGIKA HARGA ANDA DI SINI ---
-                 // Fungsi ini harus mengembalikan harga SATU unit item berdasarkan konfigurasi yang dipilih.
-                 let basePricePerItem = 0; // Harga dasar per item (contoh)
-
-                 let paperTypeCost = 0;
-                 if (itemType === 'Linen') paperTypeCost = 2000; // Linen lebih mahal
-                 else if (itemType === 'Jasmine') paperTypeCost = 1500;
-                 else if (itemType === 'Concorde') paperTypeCost = 1000;
-                 else if (itemType === 'Hammer') paperTypeCost = 1200;
-                 // Tambahkan logika untuk jenis kertas lain jika diperlukan
-                 // If itemType is empty, paperTypeCost remains 0
-
-                 let finishingCost = 0;
-                 if (finishing === 'Laminasi Doff' || finishing === 'Laminasi Glossy') finishingCost = 700; // Tambahan biaya finishing per item
-                 // Tambahkan logika untuk finishing lain jika diperlukan
-                 // If finishing is empty or 'None', finishingCost remains 0
-
-
-                 let sizeMultiplier = 1; // Multiplier harga berdasarkan ukuran
-                 if (size === 'A4') sizeMultiplier = 1.5; // A4 1.5x lebih besar/mahal dari standar
-                 else if (size === 'A5') sizeMultiplier = 0.8; // A5 0.8x dari standar (contoh)
-                  // Ukuran custom akan bergantung pada catatan. Harga ini HANYA ESTIMASI
-                  // Jika ada ukuran custom dipilih, harganya tidak bisa dihitung otomatis dengan multiplier ini.
-                  // Anda mungkin perlu bidang input terpisah untuk ukuran custom (PxL) dan menghitung area,
-                  // lalu mengalikan dengan harga per luas (per m2 atau per cm2) untuk kertas fancy.
-                  if (size === 'Custom') sizeMultiplier = 1; // Treat custom size as base for estimation
-
-
-                 // Calculate price per single item
-                  // Ensure basic options are selected for a valid calculation
-                 if (parseInt(quantityInput.value) > 0) { // Only calculate if quantity > 0
-                    let price = (basePricePerItem + paperTypeCost + finishingCost) * sizeMultiplier;
-                     // Minimal price check
-                     const minPrice = 5000; // Example minimum price per item
-                     if (price > 0 && price < minPrice) return minPrice; // Apply minimum only if quantity > 0
-                    return price;
-                 }
-                 return 0; // Return 0 if quantity is 0 or essential options for price are not selected
-
-             }
-
-            // Function to format number to Rupiah
-             function formatRupiah(number) {
-                const num = parseFloat(number) || 0;
-                return new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR',
-                    minimumFractionDigits: 0 // No decimals for simplicity
-                }).format(num);
-             }
-
-            // Define function to update all price elements
-            function updateEstimatedPrice() {
-                const quantity = parseInt(quantityInput.value) || 0;
-                const paperType = paperTypeSelect.value;
-                const finishing = finishingSelect.value;
-                const size = sizeSelect.value;
-                const selectedShippingMethod = shippingMethodSelect.value;
-
-                let itemSubtotal = 0;
-                let calculatedShipping = 0;
-                let calculatedTax = 0;
-                let finalTotal = 0;
-                let estimatedTime = 'Pilih opsi pengiriman';
-
-                // Calculate subtotal for items
-                 if (quantity > 0) {
-                     let pricePerSingleItem = getItemPrice(paperType, finishing, size);
-                     itemSubtotal = quantity * pricePerSingleItem;
-                 } else {
-                     itemSubtotal = 0;
-                 }
-
-                 // Get shipping cost and estimated time
-                const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                calculatedShipping = shippingInfo.cost;
-                estimatedTime = shippingInfo.estimatedTime;
-
-                 // Calculate tax
-                 calculatedTax = itemSubtotal * TAX_RATE_PLACEHOLDER;
-
-
-                 // Calculate final total (only if item subtotal > 0)
-                 if (itemSubtotal > 0) {
-                     finalTotal = itemSubtotal + calculatedShipping + calculatedTax;
-                 } else {
-                     calculatedShipping = 0;
-                     calculatedTax = 0;
-                     finalTotal = 0;
-                 }
-
-                // Update the display elements
-                itemSubtotalDisplay.textContent = formatRupiah(itemSubtotal);
-                shippingCostDisplay.textContent = formatRupiah(calculatedShipping);
-                taxAmountDisplay.textContent = formatRupiah(calculatedTax);
-                finalTotalDisplay.textContent = formatRupiah(finalTotal);
-                estimatedTimeDisplay.textContent = estimatedTime;
-            }
-
-            // Add event listeners to input elements that affect price
-            quantityInput.addEventListener('input', updateEstimatedPrice);
-            paperTypeSelect.addEventListener('change', updateEstimatedPrice);
-            finishingSelect.addEventListener('change', updateEstimatedPrice);
-            sizeSelect.addEventListener('change', updateEstimatedPrice);
-            shippingMethodSelect.addEventListener('change', updateEstimatedPrice);
-
-
-            // Add event listener for the "Lanjutkan Pembayaran" button
-            continueButton.addEventListener('click', function(event) {
-                 // Basic form validation check
-                if (!orderForm.checkValidity()) {
-                    orderForm.reportValidity(); // Trigger browser's validation UI
-                    return; // Stop the process
-                }
-
-                // Recalculate prices one last time
-                updateEstimatedPrice();
-
-                // Recalculate values for storage based on current inputs
-                 const quantity = parseInt(quantityInput.value) || 0;
-                 const pricePerSingleItem = getItemPrice(paperTypeSelect.value, finishingSelect.value, sizeSelect.value);
-                 const itemSubtotal = quantity * pricePerSingleItem;
-
-                 const selectedShippingMethod = shippingMethodSelect.value;
-                 const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                 const calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0;
-                 const calculatedTax = itemSubtotal > 0 ? itemSubtotal * TAX_RATE_PLACEHOLDER : 0;
-                 const finalTotal = itemSubtotal > 0 ? itemSubtotal + calculatedShipping + calculatedTax : 0;
-                 const estimatedTime = shippingInfo.estimatedTime;
-
-                 // Gather all relevant data to pass to the payment page
-                 const orderData = {
-                     productName: "Cetak Fancy Paper",
-                     quantity: quantity,
-                     specificOptions: { // Data spesifik produk ini
-                         JenisKertas: paperTypeSelect.value !== "" ? paperTypeSelect.value : null, // Simpan null jika placeholder dipilih
-                         Ukuran: sizeSelect.value !== "" ? sizeSelect.value : null,
-                         Finishing: finishingSelect.value !== "" ? finishingSelect.value : null,
-                     },
-                     // Info Pelanggan dan Pengiriman
-                     customerName: customerNameInput.value,
-                     customerPhone: customerPhoneInput.value,
-                     customerEmail: customerEmailInput.value,
-                     customerAddress: customerAddressInput.value,
-                     shippingMethod: selectedShippingMethod,
-                     shippingMethodDisplay: shippingInfo.estimatedTime !== 'Pilih opsi pengiriman' ? shippingOptions[selectedShippingMethod]?.estimatedTime + ' (' + selectedShippingMethod.charAt(0).toUpperCase() + selectedShippingMethod.slice(1) + ')' : 'Belum dipilih', // Display string
-                     notes: notesInput.value,
-
-                     // Detail Ringkasan Harga
-                     itemSubtotal: itemSubtotal,
-                     shippingCost: calculatedShipping,
-                     taxAmount: calculatedTax,
-                     finalTotal: finalTotal,
-                     estimatedTime: estimatedTime
-                 };
-
-                 // Store the data in localStorage
-                 localStorage.setItem('currentOrderData', JSON.stringify(orderData));
-
-                 // Redirect to the payment page
-                 window.location.href = 'payment.html';
-             });
-
-
-            // Call the function once when the page loads to set initial prices and time
-            updateEstimatedPrice();
-        });
+      AOS.init();
     </script>
+    <!-- Animate Scroll JS -->
 
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+      
+          const itemSubtotalDisplay = document.getElementById('itemSubtotal');
+          const shippingCostDisplay = document.getElementById('shippingCost');
+          const promoDiscountDisplay = document.getElementById('promoDiscountDisplay');
+          const taxAmountDisplay = document.getElementById('taxAmount');
+          const finalTotalDisplay = document.getElementById('finalTotal');
+          const estimatedTimeDisplay = document.getElementById('estimatedTime');
+
+       
+          const quantityInput = document.getElementById('quantity');
+          const paperTypeSelect = document.getElementById('paperType');
+          const finishingSelect = document.getElementById('finishing');
+          const sizeSelect = document.getElementById('size');
+          const shippingMethodSelect = document.getElementById('shippingMethod');
+          const customerNameInput = document.getElementById('customerName');
+          const customerPhoneInput = document.getElementById('customerPhone');
+          const customerEmailInput = document.getElementById('customerEmail');
+          const customerAddressInput = document.getElementById('customerAddress');
+          const notesInput = document.getElementById('notes');
+          const continueButton = document.getElementById('continueToPaymentButton');
+          const orderForm = document.getElementById('fancyPaperOrderForm');
+
+          
+          const promoCodeInput = document.getElementById('promoCodeInput');
+          const redeemPromoButton = document.getElementById('redeemPromoButton');
+
+          const TAX_RATE_PLACEHOLDER = 0.10;
+
+          const shippingOptions = {
+              '': { cost: 0, estimatedTime: 'Pilih opsi pengiriman' },
+              'pickup': { cost: 0, estimatedTime: 'Siap diambil hari ini/besok (konfirmasi)' },
+              'standard': { cost: 5000, estimatedTime: '2-3 Hari Kerja' },
+              'express': { cost: 10000, estimatedTime: '1-2 Hari Kerja' }
+          };
+
+          
+          const promoCodes = {
+              "HEMAT10": { type: "percentage", value: 0.10, description: "Diskon 10%" },    
+              "DISKON5K": { type: "fixed", value: 5000, description: "Potongan Rp 5.000" }, 
+              "RNRMANTAP": { type: "percentage", value: 0.05, description: "Diskon 5%"} 
+          };
+          let appliedPromo = null; 
+
+          
+          function getItemPrice(itemType, finishing, size) {
+              let basePrice = 0;
+
+              
+              if (itemType === 'Linen') basePrice = 3000;
+              else if (itemType === 'Jasmine') basePrice = 2500;
+              else if (itemType === 'Concorde') basePrice = 2000;
+              else if (itemType === 'Hammer') basePrice = 2200;
+              else if (itemType === 'Other') basePrice = 1800; 
+              else return 0; 
+
+            
+              if (size === 'A5') {
+                  basePrice *= 0.6; 
+              } else if (size === 'A4') {
+                  basePrice *= 1.0; 
+              } else if (size === 'Custom') {
+                  basePrice *= 1.0; 
+              } else {
+                  
+                  basePrice *= 1.0;
+              }
+
+             
+              let finishingCost = 0;
+              if (finishing === 'Laminasi Doff' || finishing === 'Laminasi Glossy') {
+                  finishingCost = 700;
+              }
+              
+
+              let calculatedItemPrice = basePrice + finishingCost;
+
+              
+              const minConfiguredItemPrice = 1000; 
+              if (calculatedItemPrice > 0 && calculatedItemPrice < minConfiguredItemPrice) {
+                  calculatedItemPrice = minConfiguredItemPrice;
+              }
+              
+              return calculatedItemPrice;
+          }
+
+          function formatRupiah(number) {
+              const num = parseFloat(number) || 0;
+              return new Intl.NumberFormat('id-ID', {
+                  style: 'currency',
+                  currency: 'IDR',
+                  minimumFractionDigits: 0
+              }).format(num);
+          }
+
+          function updateEstimatedPrice() {
+              const quantity = parseInt(quantityInput.value) || 0;
+              const paperType = paperTypeSelect.value;
+              const finishing = finishingSelect.value;
+              const size = sizeSelect.value;
+              const selectedShippingMethod = shippingMethodSelect.value;
+
+              let itemPricePerUnit = 0;
+              if (paperType && size) { 
+                  itemPricePerUnit = getItemPrice(paperType, finishing, size);
+              }
+              
+              let itemSubtotal = 0;
+              if (quantity > 0 && itemPricePerUnit > 0) {
+                  itemSubtotal = quantity * itemPricePerUnit;
+              } else {
+                  itemSubtotal = 0; 
+              }
+
+             
+              let promoDiscountValue = 0;
+              if (appliedPromo && itemSubtotal > 0) {
+                  if (appliedPromo.type === "percentage") {
+                      promoDiscountValue = itemSubtotal * appliedPromo.value;
+                  } else if (appliedPromo.type === "fixed") {
+                      promoDiscountValue = appliedPromo.value;
+                  }
+                  
+                  if (promoDiscountValue > itemSubtotal) {
+                      promoDiscountValue = itemSubtotal;
+                  }
+              }
+
+              const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
+              
+              const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
+              let calculatedShipping = 0;
+              let estimatedTime = shippingInfo.estimatedTime;
+
+              if (itemSubtotal > 0) { 
+                  calculatedShipping = shippingInfo.cost;
+              } else {
+                  estimatedTime = 'Pilih opsi pengiriman'; 
+              }
+              
+              
+              let calculatedTax = 0;
+              if (subtotalAfterPromo > 0) {
+                  calculatedTax = subtotalAfterPromo * TAX_RATE_PLACEHOLDER;
+              }
+
+
+              let finalTotal = 0;
+              if (itemSubtotal > 0) { 
+                  finalTotal = subtotalAfterPromo + calculatedShipping + calculatedTax;
+              } else { 
+                  calculatedShipping = 0;
+                  promoDiscountValue = 0;
+                  calculatedTax = 0;
+                  finalTotal = 0;
+              }
+
+
+              
+              itemSubtotalDisplay.textContent = formatRupiah(itemSubtotal);
+              promoDiscountDisplay.textContent = formatRupiah(-promoDiscountValue);
+              shippingCostDisplay.textContent = formatRupiah(calculatedShipping);
+              taxAmountDisplay.textContent = formatRupiah(calculatedTax);
+              finalTotalDisplay.textContent = formatRupiah(finalTotal);
+              estimatedTimeDisplay.textContent = estimatedTime;
+          }
+
+          
+          redeemPromoButton.addEventListener('click', function() {
+              const code = promoCodeInput.value.trim().toUpperCase();
+              if (promoCodes[code]) {
+                  appliedPromo = promoCodes[code];
+                  alert(`Promo "${appliedPromo.description}" berhasil diterapkan!`);
+                  
+              } else {
+                  appliedPromo = null; 
+                  alert("Kode promo tidak valid.");
+              }
+              updateEstimatedPrice(); 
+          });
+
+          
+          quantityInput.addEventListener('input', updateEstimatedPrice);
+          paperTypeSelect.addEventListener('change', updateEstimatedPrice);
+          finishingSelect.addEventListener('change', updateEstimatedPrice);
+          sizeSelect.addEventListener('change', updateEstimatedPrice);
+          shippingMethodSelect.addEventListener('change', updateEstimatedPrice);
+          promoCodeInput.addEventListener('input', function() { 
+           
+          });
+
+
+          continueButton.addEventListener('click', function(event) {
+              if (!orderForm.checkValidity()) {
+                  orderForm.reportValidity();
+                  return;
+              }
+              updateEstimatedPrice();
+
+              const quantity = parseInt(quantityInput.value) || 0;
+              const itemPricePerUnit = getItemPrice(paperTypeSelect.value, finishingSelect.value, sizeSelect.value);
+              const itemSubtotal = quantity * itemPricePerUnit;
+
+              let promoDiscountValue = 0;
+              let promoDescription = "Tidak ada";
+              if (appliedPromo && itemSubtotal > 0) {
+                  if (appliedPromo.type === "percentage") {
+                      promoDiscountValue = itemSubtotal * appliedPromo.value;
+                  } else if (appliedPromo.type === "fixed") {
+                      promoDiscountValue = appliedPromo.value;
+                  }
+                  if (promoDiscountValue > itemSubtotal) promoDiscountValue = itemSubtotal;
+                  promoDescription = appliedPromo.description + ` (${promoCodeInput.value.trim().toUpperCase()})`;
+              }
+              const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
+              const selectedShippingMethod = shippingMethodSelect.value;
+              const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
+              const calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0;
+              const calculatedTax = itemSubtotal > 0 ? subtotalAfterPromo * TAX_RATE_PLACEHOLDER : 0;
+              const finalTotal = itemSubtotal > 0 ? subtotalAfterPromo + calculatedShipping + calculatedTax : 0;
+              const estimatedTime = shippingInfo.estimatedTime;
+
+              const orderData = {
+                  productName: "Cetak Fancy Paper",
+                  quantity: quantity,
+                  specificOptions: {
+                      JenisKertas: paperTypeSelect.value !== "" ? paperTypeSelect.value : null,
+                      Ukuran: sizeSelect.value !== "" ? sizeSelect.value : null,
+                      Finishing: finishingSelect.value !== "" ? finishingSelect.value : null,
+                  },
+                  customerName: customerNameInput.value,
+                  customerPhone: customerPhoneInput.value,
+                  customerEmail: customerEmailInput.value,
+                  customerAddress: customerAddressInput.value,
+                  shippingMethod: selectedShippingMethod,
+                  shippingMethodDisplay: shippingInfo.estimatedTime !== 'Pilih opsi pengiriman' ? shippingOptions[selectedShippingMethod]?.estimatedTime + ' (' + selectedShippingMethod.charAt(0).toUpperCase() + selectedShippingMethod.slice(1) + ')' : 'Belum dipilih',
+                  notes: notesInput.value,
+                  
+                  itemSubtotal: itemSubtotal,
+                  promoApplied: promoDescription,
+                  promoDiscountAmount: promoDiscountValue,
+                  subtotalAfterPromo: subtotalAfterPromo,
+                  shippingCost: calculatedShipping,
+                  taxAmount: calculatedTax,
+                  finalTotal: finalTotal,
+                  estimatedTime: estimatedTime
+              };
+              localStorage.setItem('currentOrderData', JSON.stringify(orderData));
+              window.location.href = 'payment.html';
+          });
+
+          updateEstimatedPrice();
+      });
+    </script>
+</body>
 </html>
