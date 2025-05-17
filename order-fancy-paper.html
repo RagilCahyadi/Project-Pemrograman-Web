@@ -60,18 +60,40 @@
           border-radius: 5px;
         }
 
+        .price-breakdown{
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 0.75rem;
+        }
+
          .price-breakdown li {
              display: flex;
              justify-content: space-between;
+             align-items: flex-start;
              margin-bottom: 5px;
              padding-bottom: 5px;
              border-bottom: 1px dotted #a7c2a7;
+             font-size: 0.9rem;
          }
+
+         .price-breakdown li span{
+          word-break: break-word;
+         }
+
+         .price-breakdown li span:first-child{
+          margin-right: 15px;
+         }
+
+         .price-breakdown li span:last-child{
+          text-align: right;
+          font-weight: 500;
+         }
+
          .price-breakdown li:last-child {
              border-bottom: none;
              margin-top: 10px;
              padding-top: 10px;
-             font-size: 1.2em;
+             font-size: 1.05rem;
              font-weight: bold;
              border-top: 1px solid #a7c2a7;
          }
@@ -81,6 +103,30 @@
           .price-breakdown li:last-child span {
                font-weight: bold; 
           }
+
+           .price-summary > small.text-muted { 
+            text-align: center; 
+            display: block; 
+            font-size: 0.8rem; 
+            line-height: 1.4;  
+        }
+
+        @media (max-width: 576px) {
+            .price-summary {
+                max-width: 100%; 
+                padding-left: 5px; 
+                padding-right: 5px;
+            }
+            .price-breakdown li {
+                font-size: 0.85rem;
+            }
+            .price-breakdown li:last-child {
+                font-size: 1rem;
+            }
+            .price-summary > small.text-muted {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 
   </head>
@@ -171,19 +217,19 @@
 
                     <div class="detail-product mt-5 text-justify">
                       <nav id="navbar-detail-product" class="navbar navbar-light bg-light px-3 ">
-                    <a class="navbar-brand" href="#"></a>
-                    <ul class="nav nav-pills mx-auto mb">
-                      <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading1">Detail Product</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading2">Jenis Product</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading3">Tipe Desain</a>
-                      </li>
-                    </ul>
-                  </nav>
+                        <a class="navbar-brand" href="#"></a>
+                        <ul class="nav nav-pills flex-column flex-sm-row mx-auto mb">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">Detail Product</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">Jenis Product</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">Tipe Desain</a>
+                          </li>
+                        </ul>
+                      </nav>
                  
                   <div data-bs-spy="scroll" data-bs-target="#navbar-detail-product" data-bs-offset="0" class="scrollspy-example mt-5" tabindex="0">
                     <h4 id="scrollspyHeading1">Detail Produk Cetak Fancy Paper</h4>
@@ -319,7 +365,7 @@
 
                                <div class="checkout-summary mt-4">
                                <h4 class="mb-3 text-center">Ringkasan Pesanan</h4>
-                               <div class="price-summary me-5">
+                               <div class="price-summary">
                                     <ul class="price-breakdown">
                                         <li>
                                             <span>Subtotal Item:</span>
