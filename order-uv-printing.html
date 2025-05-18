@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id"> <!-- Diubah ke id -->
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,16 @@
      <link rel="stylesheet" href="">
     <!-- Font -->
 
+    <!-- Animate Css -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Animate Css -->
+
+    <!-- Animate Scroll CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Animate Scroll CSS -->
+
     <!--Bootstraps CSS-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
@@ -32,111 +42,160 @@
     <!--Bootstraps CSS-->
 
     <style>
-        /* Optional: Tambahkan styling khusus untuk halaman form */
-        .order-page-section {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        .product-image-preview {
-            border: 1px solid #ccc; /* Add border around carousel */
-            border-radius: 5px; /* Match form border radius */
-            overflow: hidden; /* Ensure corners are rounded */
-            background-color: #f8f9fa; /* Light background */
-            /* Optional: Adjust padding if needed inside */
-            /* padding: 10px; */
+        /* Copying style from provided fancy paper code */
+        .detail-product{
+            text-align: justify;
         }
 
-         /* Style for carousel images to be responsive */
-         .carousel-item img {
-            width: 100%; /* Make image take full width of carousel item */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove extra space below image */
-            /* Optional: set a max-height if needed, might cause empty space or need object-fit */
-            /* max-height: 400px; */
-            /* object-fit: contain; /* or 'cover' depending on desired effect */
-         }
-
-        .product-config-form {
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-        /* Styling for the moved details section below the carousel */
-        .details-below-carousel { /* Generic class */
-            margin-top: 20px; /* Add some space above the text */
-            /* Add padding or other styles if needed */
-            padding-top: 15px;
-            border-top: 1px solid #eee; /* Optional: Add a separator line */
+        .product-form{
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px; /* Corrected typo here */
+          background-color: #f9f9f9;
         }
 
-        .details-below-carousel ul {
-            margin-bottom: 1rem; /* Add space below lists */
+        .checkout-summary{
+          background-color: #e9ecef;
+          padding: 20px;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
         }
 
-        /* === Styling for the new checkout summary section === */
-        .checkout-summary {
-             background-color: #e9ecef; /* Light grey background */
-             border: 1px solid #ced4da;
-             border-radius: 5px;
-             padding: 20px; /* Increased padding */
-             margin-top: 20px; /* Space above this section */
+        .price-breakdown{
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 0.75rem;
         }
-         .checkout-summary h4 {
-             margin-top: 0; /* Remove top margin from title */
-             margin-bottom: 15px; /* Space below title */
-             text-align: center;
-         }
-        /* === End Styling for the new checkout summary section === */
 
-
-        .price-summary { /* Keep existing price summary styles, now inside checkout-summary */
-            /* background-color: #d4edda; /* Light green background - Optional, can remove if inside checkout-summary */
-            border: none; /* Remove border if inside checkout-summary */
-            padding: 0; /* Remove padding if inside checkout-summary */
-            border-radius: 0; /* Remove border-radius if inside checkout-summary */
-            margin-bottom: 0; /* Space below price summary list */
-        }
-         .price-summary h4 {
-             margin-bottom: 10px;
-             text-align: center; /* Center title */
-         }
-         .price-breakdown {
-             list-style: none;
-             padding: 0;
-             margin: 0;
-         }
          .price-breakdown li {
              display: flex;
              justify-content: space-between;
+             align-items: flex-start;
              margin-bottom: 5px;
              padding-bottom: 5px;
-             border-bottom: 1px dotted #a7c2a7; /* Dotted line for separation */
+             border-bottom: 1px dotted #a7c2a7;
+             font-size: 0.9rem;
          }
+
+         .price-breakdown li span{
+          word-break: break-word;
+         }
+
+         .price-breakdown li span:first-child{
+          margin-right: 15px;
+         }
+
+         .price-breakdown li span:last-child{
+          text-align: right;
+          font-weight: 500;
+         }
+
          .price-breakdown li:last-child {
              border-bottom: none;
              margin-top: 10px;
              padding-top: 10px;
-             font-size: 1.2em; /* Larger font for total */
+             font-size: 1.05rem;
              font-weight: bold;
-             border-top: 1px solid #a7c2a7; /* Solid line above total */
+             border-top: 1px solid #a7c2a7;
          }
           .price-breakdown li span:first-child {
-              font-weight: normal; /* Label not bold */
+              font-weight: normal;
           }
           .price-breakdown li:last-child span {
-               font-weight: bold; /* Both label and value bold for total */
+               font-weight: bold;
           }
 
+           .price-summary > small.text-muted {
+            text-align: center;
+            display: block;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Styles for the detail navigation (copied from provided fancy paper) */
+        @media (max-width: 575.98px) {
+            #navbar-detail-product .nav-pills.flex-column .nav-item {
+              width: 100%;
+              margin-bottom: 0.35rem;
+            }
+            #navbar-detail-product .nav-pills.flex-column .nav-item:last-child {
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-column .nav-link {
+              text-align: center;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+               /* Keep large padding from fancy paper model if needed */
+              padding-left: 100px;
+              padding-right: 100px;
+              font-size: 0.9rem;
+            }
+          }
+
+          @media (min-width: 576px) and (max-width: 767.98px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: 100%; /* Changed to 100% for small-medium screens */
+              margin-bottom: 0.35rem; /* Added margin */
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:last-child {
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              text-align: center;
+              padding-top: 0.4rem;
+              padding-bottom: 0.4rem;
+              font-size: 0.875rem;
+            }
+          }
+
+
+          @media (min-width: 768px) and (max-width: 991.98px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: auto;
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:not(:last-child) {
+              margin-right: 0.25rem;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              padding-left: 0.6rem;
+              padding-right: 0.6rem;
+              padding-top: 0.4rem;
+              padding-bottom: 0.4rem;
+              font-size: 0.8rem;
+              white-space: nowrap;
+              text-align: center;
+            }
+          }
+
+
+          @media (min-width: 992px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: auto;
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:not(:last-child) {
+              margin-right: 0.5rem;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              padding-left: 1rem;
+              padding-right: 1rem;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+              font-size: 0.9rem;
+              white-space: normal;
+              text-align: center;
+            }
+          }
 
     </style>
 
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary py-3">
+    <nav class="navbar navbar-expand-lg bg-primary py-3 animate__animated animate__fadeInDown">
       <div class="container">
-        <a class="navbar-brand" href="index.html"> <!-- Link kembali ke halaman utama -->
+        <a class="navbar-brand animate__animated animate__fadeInLeft animate__delay-1s" href="index.html">
           <img
             src="./assets/2.png"
             alt="Logo"
@@ -146,7 +205,7 @@
           />
           <span class="fs-3 fw-bold text-white">RNR Digital Printing</span>
         </a>
-         <button
+        <button
           class="navbar-toggler bg-white shadow-none"
           type="button"
           data-bs-toggle="collapse"
@@ -158,164 +217,178 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
+          <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#about">About</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
+    <!-- Navbar -->
 
     <section class="order-page-section">
         <div class="container">
-
-            <h1 class="text-primary text-center mb-5">Checkout Cetak UV Printing</h1>
-
-            <div class="row g-4"> <!-- Use g-4 for gutter spacing -->
-
-                <!-- Left Column: Product Image/Preview Carousel + Details Below -->
+            <h1 class="display-5 fw-bold text-center mb-5">Halaman Pemesanan UV Printing</h1> <!-- Title adjusted -->
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="product-image-preview">
-                        <!-- Bootstrap Carousel goes here -->
-                        <div id="uvPrintingCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <!-- Indicators -->
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                               <!-- === Hanya 3 tombol === -->
-                               <!-- <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button> -->
-                               <!-- <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button> -->
-                               <!-- ==================== -->
-                            </div>
 
-                            <!-- Carousel Inner -->
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="./assets/10.jpg" class="d-block w-100" alt="UV Printing Example 1">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="./assets/12.jpeg" class="d-block w-100" alt="UV Printing Example 2">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="./assets/13.jpeg" class="d-block w-100" alt="UV Printing Example 3">
-                              </div>
-                              <!-- === Hanya 3 slide === -->
-                               <!-- <div class="carousel-item"> ... </div> -->
-                               <!-- <div class="carousel-item"> ... </div> -->
-                               <!-- ================== -->
+                    <!-- Carousel --><!-- Carousel -->
+<div id="uvPrintingCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="./assets/12.jpeg" class="d-block w-100" alt="UV Printing Image">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/13.jpeg" class="d-block w-100" alt="UV Printing Image">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/kemasan.jpeg" class="d-block w-100" alt="UV Printing Image">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- Carousel -->
+                    <!-- Carousel -->
 
-                            </div>
-
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#uvPrintingCarousel" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                    </div>
-
-                    <!-- Moved Section for Product Details -->
-                    <div class="details-below-carousel">
-                         <p class="text-muted small text-center fst-italic">
-                           </p>
-
-                        <h3>Detail Produk Cetak UV Printing</h3>
-                        <p class="lh-lg">
-                           Cetak UV Printing menggunakan tinta khusus yang dikeringkan seketika dengan sinar UV, menghasilkan cetakan yang tahan lama, anti-air, dan tahan gores pada berbagai permukaan yang tidak bisa dicetak dengan tinta biasa. Teknologi ini memungkinkan cetak langsung di atas media keras atau non-penyerap tinta.
-                        </p>
-                        <h4>Keunggulan UV Printing:</h4>
-                        <ul>
-                            <li>Hasil cetak tahan air, tahan gores, dan tidak mudah pudar.</li>
-                            <li>Dapat mencetak di berbagai media (plastik, kayu, metal, akrilik, kulit, dll.).</li>
-                            <li>Warna lebih cerah dan detail lebih tajam.</li>
-                            <li>Tersedia opsi cetak tinta putih dan varnish (efek timbul/kilap).</li>
+                    <!-- Product Details Section with Scrollspy Nav -->
+                    <div class="detail-product mt-5 text-justify">
+                      <nav id="navbar-detail-product" class="navbar navbar-light bg-light px-3">
+                        <a class="navbar-brand" href="#"></a>
+                         <!-- Links adjusted to match the fancy paper model links structure -->
+                        <ul class="nav nav-pills flex-column flex-sm-row flex-wrap mx-auto mb">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">Detail Product</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">Keunggulan</a> <!-- Link text adjusted -->
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">Cocok untuk</a> <!-- Link text adjusted -->
+                          </li>
+                           <li class="nav-item">
+                             <a class="nav-link" href="#scrollspyHeading4">Tipe Desain</a> <!-- Link text adjusted -->
+                           </li>
                         </ul>
-                        <h4>Cocok untuk Mencetak:</h4>
-                        <ul>
-                            <li>ID Card PVC</li>
-                            <li>Lanyard / Tali ID Card</li>
-                            <li>Tiket Gelang (Wristband)</li>
-                            <li>Casing / Hardcase HP</li>
-                            <li>Plakat Akrilik atau Kayu</li>
-                            <li>Gantungan Kunci Akrilik/Custom</li>
-                            <li>Permukaan Datar Lain (Max ukuran area cetak perlu dikonfirmasi)</li>
-                        </ul>
+                      </nav>
 
-                         <h4>Tips Desain & File:</h4>
-                         <ul>
-                             <li>Desain dalam format vektor (AI, CDR, EPS, SVG) sangat direkomendasikan untuk hasil terbaik, terutama untuk garis halus atau cetak potong.</li>
-                             <li>Jika menggunakan format raster (JPG, PNG), pastikan resolusi sangat tinggi (minimal 300 DPI pada ukuran cetak sebenarnya).</li>
-                             <li>Untuk cetak tinta putih atau varnish, Anda perlu menyiapkan file desain dengan layer terpisah yang menunjukkan area yang ingin dicetak putih/varnish. Konsultasikan format file yang diinginkan dengan tim kami.</li>
-                             <li>Pastikan desain sesuai dengan ukuran dan bentuk item yang akan dicetak.</li>
+                  <div data-bs-spy="scroll" data-bs-target="#navbar-detail-product" data-bs-offset="0" class="scrollspy-example mt-5" tabindex="0">
+                    <h4 id="scrollspyHeading1">Detail Produk Cetak UV Printing</h4> <!-- Heading adjusted -->
+                      <p class="lh-lg">
+                         Cetak UV Printing menggunakan tinta khusus yang dikeringkan seketika dengan sinar UV, menghasilkan cetakan yang tahan lama, anti-air, dan tahan gores pada berbagai permukaan yang tidak bisa dicetak dengan tinta biasa. Teknologi ini memungkinkan cetak langsung di atas media keras atau non-penyerap tinta.
+                      </p>
+                      <p class="lh-lg">
+                        Teknologi UV Printing menawarkan solusi cetak berkualitas tinggi dengan daya tahan luar biasa, menjadikannya pilihan ideal untuk berbagai aplikasi personal maupun komersial yang membutuhkan hasil cetak premium dan tahan lama.
+                      </p> <!-- Added extra paragraph for flow, similar to fancy paper model -->
+
+                    <h4 id="scrollspyHeading2">Keunggulan UV Printing</h4> <!-- Heading adjusted -->
+                     <p class="lh-lg">
+                        Beberapa keunggulan utama dari teknologi cetak UV Printing meliputi:
+                     </p>
+                      <ul class="mb-5">
+                          <li>Hasil cetak tahan air, tahan gores, dan tidak mudah pudar di bawah paparan sinar UV atau cuaca.</li> <!-- Formatting adjusted -->
+                          <li>Dapat mencetak di berbagai media non-konvensional (plastik, kayu, metal, akrilik, kulit, keramik, dll.) yang tidak bisa dicetak dengan printer biasa.</li> <!-- Formatting adjusted -->
+                          <li>Warna lebih cerah, vibran, dan detail lebih tajam karena tinta tidak menyerap ke dalam media.</li> <!-- Formatting adjusted -->
+                          <li>Proses pengeringan instan dengan sinar UV memungkinkan pengerjaan cepat.</li> <!-- Formatting adjusted -->
+                          <li>Tersedia opsi cetak tinta putih untuk media berwarna gelap atau transparan, serta varnish untuk efek timbul atau kilap spot.</li> <!-- Formatting adjusted -->
+                      </ul>
+                    <h4 id="scrollspyHeading3">Cocok untuk Mencetak</h4> <!-- Heading adjusted -->
+                       <p class="lh-lg">
+                         Layanan UV Printing sangat serbaguna dan cocok untuk berbagai jenis produk:
+                       </p>
+                        <ul class="mb-5">
+                            <li><b>ID Card PVC:</b> Cetak personalisasi ID card dengan hasil tajam dan tahan lama.</li> <!-- Formatting adjusted -->
+                            <li><b>Lanyard / Tali ID Card:</b> Cetak logo atau desain pada tali ID card untuk keperluan branding atau acara.</li> <!-- Formatting adjusted -->
+                            <li><b>Tiket Gelang (Wristband):</b> Cetak tiket gelang event yang unik dan tidak mudah rusak.</li> <!-- Formatting adjusted -->
+                            <li><b>Casing / Hardcase HP:</b> Personalisasi casing HP dengan desain custom.</li> <!-- Formatting adjusted -->
+                            <li><b>Plakat Akrilik atau Kayu:</b> Membuat plakat penghargaan, ucapan terima kasih, atau souvenir dengan cetakan berkualitas tinggi.</li> <!-- Formatting adjusted -->
+                            <li><b>Gantungan Kunci Akrilik/Custom:</b> Mencetak desain pada gantungan kunci akrilik atau media custom lainnya.</li> <!-- Formatting adjusted -->
+                            <li><b>Permukaan Datar Lain:</b> Kami juga dapat mencetak pada permukaan datar lainnya (maksimal ukuran area cetak perlu dikonfirmasi).</li> <!-- Formatting adjusted -->
+                        </ul>
+                    <h4 id="scrollspyHeading4">TipeDesain & File</h4> <!-- Heading adjusted -->
+                    <p>Untuk mendapatkan hasil cetak UV Printing terbaik, perhatikan hal-hal berikut saat menyiapkan file desain:</p> <!-- Intro text added -->
+                      <ul>
+                             <li>Desain dalam format vektor (AI, CDR, EPS, SVG) sangat direkomendasikan untuk hasil terbaik, terutama untuk garis halus, teks kecil, atau jika memerlukan potong bentuk.</li> <!-- Formatting adjusted -->
+                             <li>Jika menggunakan format raster (JPG, PNG), pastikan resolusi sangat tinggi (minimal 300 DPI pada ukuran cetak sebenarnya) agar hasil tidak pecah.</li> <!-- Formatting adjusted -->
+                             <li>Untuk cetak tinta putih atau varnish, Anda perlu menyiapkan file desain dengan layer terpisah yang menunjukkan area yang ingin dicetak putih/varnish. Konsultasikan format file yang diinginkan dengan tim kami untuk panduan spesifik.</li> <!-- Formatting adjusted -->
+                             <li>Pastikan desain sesuai dengan ukuran dan bentuk item yang akan dicetak. Sediakan file dengan area bleed jika diperlukan.</li> <!-- Formatting adjusted -->
                          </ul>
-                        <p>Hubungi kami untuk konsultasi lebih lanjut mengenai media yang bisa dicetak UV atau kebutuhan desain khusus Anda.</p>
-                    </div>
+                        <p>Hubungi kami untuk konsultasi lebih lanjut mengenai media yang bisa dicetak UV, persiapan file desain, atau kebutuhan cetak kustom Anda.</p> <!-- Closing paragraph -->
+                  </div>
+
                 </div>
 
-                <!-- Right Column: Configuration Form -->
-                <div class="col-md-6">
-                    <div class="product-config-form rounded">
-                        <h3>Konfigurasi Pesanan</h3>
-                        <p class="text-muted mb-4">Sesuaikan pilihan cetak UV Printing Anda.</p>
+                </div>
 
-                         <!-- Formulir Pemesanan UV Printing -->
-                        <form id="uvPrintingOrderForm" enctype="multipart/form-data">
-                           <input type="hidden" name="product" value="Cetak UV Printing">
+                <div class="col-md-6">
+                  <div class="product-form">
+                    <h3 class="text-center">Form Pemesanan</h3>
+                    <p class="text-muted mb-4">Sesuaikan pilihan cetakan anda</p>
+
+                    <form id="uvPrintingOrderForm" enctype="multipart/form-data"> <!-- ID adjusted -->
+                      <input type="hidden" name="product" value="Cetak UV Printing"> <!-- Product name adjusted -->
 
                            <div class="mb-3">
-                             <label for="uvItemType" class="form-label">Jenis Item <span class="text-danger">*</span></label>
-                             <select class="form-select" id="uvItemType" name="uvItemType" required>
-                                 <option value="">-- Pilih Jenis Item --</option>
+                             <label for="uvItemType" class="form-label">Jenis Item <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <select class="form-select" id="uvItemType" name="uvItemType" required> <!-- ID adjusted -->
+                                 <option value="" disabled selected>-- Pilih Jenis Item --</option>
                                  <option value="ID Card">ID Card</option>
                                  <option value="Lanyard">Lanyard</option>
                                  <option value="Tiket Gelang">Tiket Gelang</option>
                                  <option value="Casing HP">Casing HP</option>
                                  <option value="Media Flatbed Lain">Media Flatbed Lain (Akrilik, Kayu, Metal, dll.)</option>
                              </select>
+                             <small class="form-text text-muted">Pilih jenis item yang ingin dicetak UV.</small> <!-- Added helper text -->
                            </div>
 
                            <div class="mb-3">
-                             <label for="printingSide" class="form-label">Sisi Cetak <span class="text-danger">*</span></label>
-                             <select class="form-select" id="printingSide" name="printingSide" required>
-                                 <option value="">-- Pilih Sisi Cetak --</option>
+                             <label for="printingSide" class="form-label">Sisi Cetak <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <select class="form-select" id="printingSide" name="printingSide" required> <!-- ID adjusted -->
+                                 <option value="" disabled selected>-- Pilih Sisi Cetak --</option>
                                  <option value="1 Sisi">1 Sisi</option>
                                  <option value="2 Sisi">2 Sisi</option>
                              </select>
+                             <small class="form-text text-muted">Pilih apakah cetak 1 sisi atau 2 sisi.</small> <!-- Added helper text -->
                            </div>
 
                            <div class="mb-3">
-                             <label for="quantityUV" class="form-label">Jumlah Pesanan (pcs) <span class="text-danger">*</span></label>
-                             <input type="number" class="form-control" id="quantityUV" name="quantity" min="1" required value="1">
+                             <label for="quantityUV" class="form-label">Jumlah Pesanan (pcs) <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <input type="number" class="form-control" id="quantityUV" name="quantity" min="1" required value="1"> <!-- ID adjusted -->
                            </div>
 
                            <div class="mb-3">
-                             <label for="fileUploadUV" class="form-label">Unggah File Desain <span class="text-danger">*</span></label>
-                             <input class="form-control" type="file" id="fileUploadUV" name="designFile" accept=".pdf,.jpg,.jpeg,.png,.ai,.cdr,.eps,.svg" required>
-                             <small class="form-text text-muted">Format file yang disarankan: Vektor (AI, CDR, EPS, SVG) atau Resolusi Tinggi (PDF, JPG, PNG). Untuk cetak putih, gunakan file vektor dengan layer terpisah untuk area putih.</small>
+                             <label for="fileUploadUV" class="form-label">Unggah File Desain <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <input class="form-control" type="file" id="fileUploadUV" name="designFile" accept=".pdf,.jpg,.jpeg,.png,.ai,.cdr,.eps,.svg" required> <!-- ID adjusted -->
+                             <small class="form-text text-muted">Format file: PDF, JPG, PNG, AI, CDR, EPS, SVG. Ukuran maks file disesuaikan server.</small> <!-- Adjusted helper text -->
                            </div>
 
                            <div class="mb-3">
-                             <label for="notesUV" class="form-label">Catatan Tambahan (Detail item spesifik, ukuran, penempatan desain, dll.)</label>
-                             <textarea class="form-control" id="notesUV" name="notes" rows="4" placeholder="Contoh: Untuk Casing HP iPhone 13 Pro, desain di bagian belakang, ada cetak putih di bawah warna"></textarea>
+                             <label for="notesUV" class="form-label">Catatan Tambahan (Detail item spesifik, ukuran, penempatan desain, dll.)</label> <!-- ID adjusted -->
+                             <textarea class="form-control" id="notesUV" name="notes" rows="4" placeholder="Contoh: Untuk Casing HP iPhone 13 Pro, desain di bagian belakang, ada cetak putih di bawah warna"></textarea> <!-- ID adjusted -->
                            </div>
 
                             <!-- Bidang Kontak & Pengiriman -->
@@ -325,7 +398,7 @@
                             <div class="mb-3">
                                <label for="shippingMethod" class="form-label">Pilih Opsi Pengiriman <span class="text-danger">*</span></label>
                                <select class="form-select" id="shippingMethod" name="shippingMethod" required>
-                                   <option value="">-- Pilih Opsi --</option>
+                                   <option value="" disabled selected>-- Pilih Opsi --</option>
                                    <option value="pickup">Ambil Sendiri di Toko (Gratis)</option>
                                    <option value="standard">Kurir Standar (Estimasi 2-3 Hari Kerja)</option>
                                    <option value="express">Kurir Express (Estimasi 1-2 Hari Kerja)</option>
@@ -333,32 +406,45 @@
                              </div>
 
                             <div class="mb-3">
-                              <label for="customerNameUV" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" id="customerNameUV" name="customerName" required>
+                              <label for="customerNameUV" class="form-label">Nama Lengkap <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                              <input type="text" class="form-control" id="customerNameUV" name="customerName" required> <!-- ID adjusted -->
                             </div>
                             <div class="mb-3">
-                              <label for="customerPhoneUV" class="form-label">Nomor Telepon/WhatsApp <span class="text-danger">*</span></label>
-                              <input type="tel" class="form-control" id="customerPhoneUV" name="customerPhone" required>
+                              <label for="customerPhoneUV" class="form-label">Nomor Telepon/WhatsApp <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                              <input type="tel" class="form-control" id="customerPhoneUV" name="customerPhone" required> <!-- ID adjusted -->
                               <small class="form-text text-muted">Kami akan menghubungi Anda melalui nomor ini.</small>
                             </div>
                              <div class="mb-3">
-                              <label for="customerEmailUV" class="form-label">Email (opsional)</label>
-                              <input type="email" class="form-control" id="customerEmailUV" name="customerEmail">
+                              <label for="customerEmailUV" class="form-label">Email <span class="text-danger">*</span></label> <!-- ID adjusted, set required -->
+                              <input type="email" class="form-control" id="customerEmailUV" name="customerEmail" required> <!-- ID adjusted, set required -->
                             </div>
                              <div class="mb-3">
-                              <label for="customerAddressUV" class="form-label">Alamat Pengiriman (opsional)</label>
-                              <textarea class="form-control" id="customerAddressUV" name="customerAddress" rows="3"></textarea>
+                              <label for="customerAddressUV" class="form-label">Alamat Pengiriman</label> <!-- ID adjusted -->
+                              <textarea class="form-control" id="customerAddressUV" name="customerAddress" rows="3" required></textarea> <!-- ID adjusted, set required -->
                               <small class="form-text text-muted">Isi jika pesanan perlu dikirim.</small>
                             </div>
 
+                            <div class="mb-3"> <!-- Promo Code Input Group -->
+                                <label for="promoCodeInput" class="form-label">Kode Promo (opsional)</label>
+                                 <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Masukkan Kode Promo" id="promoCodeInput">
+                                    <button type="button" class="btn btn-secondary" id="redeemPromoButton">Redeem</button>
+                                 </div>
+                            </div>
+
+
                            <!-- Checkout Summary Section -->
                            <div class="checkout-summary mt-4">
-                               <h4>Ringkasan Pesanan</h4>
+                               <h4 class="mb-3 text-center">Ringkasan Pesanan</h4>
                                <div class="price-summary">
                                     <ul class="price-breakdown">
                                         <li>
                                             <span>Subtotal Item:</span>
                                             <span id="itemSubtotal">Rp 0</span>
+                                        </li>
+                                         <li> <!-- Promo Discount Display -->
+                                            <span>Promo:</span>
+                                            <span id="promoDiscountDisplay">Rp 0</span>
                                         </li>
                                         <li>
                                             <span>Estimasi Sampai:</span>
@@ -431,13 +517,14 @@
     </section>
     <!-- Footer -->
 
-    <!--Bootstraps JS-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <!--Bootstraps JS-->
+    <!-- Animate Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Animate Scroll JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script Perkiraan Harga dan Redirect ke Payment Page -->
     <script>
@@ -445,14 +532,16 @@
             // Get references to price display elements
             const itemSubtotalDisplay = document.getElementById('itemSubtotal');
             const shippingCostDisplay = document.getElementById('shippingCost');
+            const promoDiscountDisplay = document.getElementById('promoDiscountDisplay'); // Promo display
             const taxAmountDisplay = document.getElementById('taxAmount');
             const finalTotalDisplay = document.getElementById('finalTotal');
             const estimatedTimeDisplay = document.getElementById('estimatedTime');
 
-            // Get references to relevant input elements
+            // Get references to relevant input elements for UV Printing
             const quantityInput = document.getElementById('quantityUV'); // Correct ID for UV Printing
             const uvItemTypeSelect = document.getElementById('uvItemType'); // Correct ID for UV Printing
             const printingSideSelect = document.getElementById('printingSide'); // Correct ID for UV Printing
+            // Standard contact & shipping elements
             const shippingMethodSelect = document.getElementById('shippingMethod');
             const customerNameInput = document.getElementById('customerNameUV'); // Correct ID for UV Printing
             const customerPhoneInput = document.getElementById('customerPhoneUV'); // Correct ID for UV Printing
@@ -461,6 +550,10 @@
             const notesInput = document.getElementById('notesUV'); // Correct ID for UV Printing
             const continueButton = document.getElementById('continueToPaymentButton');
             const orderForm = document.getElementById('uvPrintingOrderForm');
+
+            // Get references to promo elements
+            const promoCodeInput = document.getElementById('promoCodeInput');
+            const redeemPromoButton = document.getElementById('redeemPromoButton');
 
 
             // Define costs and times (REPLACE WITH YOUR ACTUAL PRICING LOGIC)
@@ -474,49 +567,62 @@
                  'express': { cost: 30000, estimatedTime: '1-2 Hari Kerja' } // Example cost
             };
 
+             // Simple hardcoded promo codes (Same as Fancy Paper/Banner for consistency)
+             const promoCodes = {
+                 "HEMAT10": { type: "percentage", value: 0.10, description: "Diskon 10%" },
+                 "DISKON5K": { type: "fixed", value: 5000, description: "Potongan Rp 5.000" },
+                 "RNRMANTAP": { type: "percentage", value: 0.05, description: "Diskon 5%"}
+             };
+             let appliedPromo = null; // Variable to store the currently applied promo object
+
 
              // Define base prices/cost multipliers per item configuration (REPLACE THESE)
              function getItemPrice(itemType, printingSide) { // Parameters specific to UV Printing
-                 // --- LOGIKA HARGA ANDA DI SINI ---
-                 // Fungsi ini harus mengembalikan harga SATU unit item berdasarkan konfigurasi yang dipilih.
-                let basePricePerItem = 0; // Harga dasar per item (1 sisi)
+                 // --- LOGIKA HARGA UV PRINTING ANDA DI SINI ---
+                 // Fungsi ini harus mengembalikan harga SATU unit item berdasarkan konfigurasi yang dipilih (Jenis Item & Sisi Cetak).
+                 // HARGA DI BAWAH ADALAH CONTOH/PLACEHOLDER, HARAP GANTI DENGAN HARGA ASLI RNR
+                let basePricePerItem = 0; // Harga dasar per item (untuk 1 sisi cetak)
 
-                // Tentukan harga dasar berdasarkan jenis item (REPLACE WITH YOUR ACTUAL PRICES)
+                // 1. Tentukan harga dasar per item berdasarkan Jenis Item
                 if (itemType === 'ID Card') {
-                    basePricePerItem = 7000;
+                    basePricePerItem = 7000; // Contoh harga per ID Card 1 sisi
                 } else if (itemType === 'Lanyard') {
-                    basePricePerItem = 15000; // Harga per Lanyard (panjang)
+                    basePricePerItem = 15000; // Contoh harga per Lanyard 1 sisi
                 } else if (itemType === 'Tiket Gelang') {
-                     basePricePerItem = 4000; // Harga per tiket gelang
+                     basePricePerItem = 4000; // Contoh harga per tiket gelang 1 sisi
                 } else if (itemType === 'Casing HP') {
-                    basePricePerItem = 30000; // Harga per casing
+                    basePricePerItem = 30000; // Contoh harga per casing HP 1 sisi
                 } else if (itemType === 'Media Flatbed Lain') {
-                    // Untuk media flatbed lain, harga sangat bervariasi tergantung ukuran & bahan
-                    // Ini contoh placeholder saja, idealnya butuh input ukuran
-                    basePricePerItem = 50000; // Contoh harga dasar per item/ukuran standar
+                    // Ini adalah kategori luas, harga bisa sangat bervariasi tergantung ukuran, bahan, dan complexity
+                    // Anda mungkin perlu logika lebih kompleks di sini, atau biarkan ini sebagai estimasi kasar
+                    // dan tambahkan catatan di payment.html bahwa ini perlu konfirmasi.
+                    basePricePerItem = 50000; // Contoh harga dasar placeholder per item flatbed (perlu penyesuaian manual)
                 }
-                // Add else if for other item types if added to select
-                else {
-                     basePricePerItem = 0; // Default if no item type selected
-                }
+                // Tambahkan else if untuk jenis item lain jika ditambahkan ke select
 
-                 // Ensure item type is selected for a valid calculation
-                 if (itemType === "") return 0;
+                // Jika jenis item belum dipilih, harga per unit adalah 0
+                 if (itemType === "" || itemType === null || itemType.startsWith('-- Pilih')) {
+                     return 0;
+                 }
 
 
-                // Sesuaikan harga jika cetak 2 sisi
+                // 2. Sesuaikan harga jika cetak 2 sisi
                 let pricePerItemCalculated = basePricePerItem;
                 if (printingSide === '2 Sisi') {
-                    // Cetak 2 sisi biasanya tidak tepat 2x lipat, ada efisiensi
-                    // Example: 80% additional for the second side
-                    pricePerItemCalculated = basePricePerItem * 1.8;
+                    // Cetak 2 sisi biasanya memerlukan biaya tambahan, tapi mungkin tidak 2x lipat penuh
+                    // Contoh: Menambah biaya 80% dari harga dasar 1 sisi untuk sisi kedua
+                    const additionalCostForSecondSide = basePricePerItem * 0.8; // Contoh tambahan 80%
+                    pricePerItemCalculated = basePricePerItem + additionalCostForSecondSide;
                 }
-                 // If printingSide is empty or '1 Sisi', pricePerItemCalculated = basePricePerItem
+                // Jika printingSide adalah '1 Sisi' atau belum dipilih, pricePerItemCalculated tetap basePricePerItem
 
 
-                 // Ensure minimum price per item if needed (Optional)
-                 // const minPrice = 5000; // Example minimum price per item
-                 // if (pricePerItemCalculated > 0 && pricePerItemCalculated < minPrice) pricePerItemCalculated = minPrice;
+                 // Optional: Tentukan harga minimum per item secara keseluruhan
+                 const minPriceOverall = 5000; // Contoh harga minimum per item (bisa disesuaikan)
+                 if (pricePerItemCalculated > 0 && pricePerItemCalculated < minPriceOverall) {
+                     return minPriceOverall; // Terapkan minimum jika perhitungan menghasilkan harga di bawah minimum
+                 }
+
 
                 return pricePerItemCalculated;
              }
@@ -539,63 +645,127 @@
                 const printingSide = printingSideSelect.value;
                 const selectedShippingMethod = shippingMethodSelect.value;
 
-                let itemSubtotal = 0;
-                let calculatedShipping = 0;
-                let calculatedTax = 0;
-                let finalTotal = 0;
-                let estimatedTime = 'Pilih opsi pengiriman';
-
-
-                // Calculate subtotal for items - only if quantity > 0 and item type is selected
-                if (quantity > 0 && uvItemType !== '') {
-                     let pricePerSingleItem = getItemPrice(uvItemType, printingSide);
-                     itemSubtotal = quantity * pricePerSingleItem;
-                } else {
-                    itemSubtotal = 0; // Item subtotal is 0 if quantity is 0 or item type missing
+                let itemPricePerUnit = 0;
+                // Calculate price per unit only if required fields for base price calculation are selected
+                 // Cek Jenis Item dan Sisi Cetak juga untuk memastikan perhitungan harga unit valid
+                if (uvItemType !== "" && uvItemType !== null && !uvItemType.startsWith('-- Pilih') && printingSide !== "" && printingSide !== null && !printingSide.startsWith('-- Pilih')) {
+                     itemPricePerUnit = getItemPrice(uvItemType, printingSide);
                 }
 
-                 // Get shipping cost and estimated time
+
+                let itemSubtotal = 0;
+                if (quantity > 0 && itemPricePerUnit > 0) {
+                    itemSubtotal = quantity * itemPricePerUnit;
+                } else {
+                    itemSubtotal = 0; // Item subtotal is 0 if quantity is 0 or unit price is 0
+                }
+
+                // Apply promo discount if applicable (Standard logic)
+                let promoDiscountValue = 0;
+                if (appliedPromo && itemSubtotal > 0) { // Only apply promo if there's a valid subtotal
+                    if (appliedPromo.type === "percentage") {
+                        promoDiscountValue = itemSubtotal * appliedPromo.value;
+                    } else if (appliedPromo.type === "fixed") {
+                        promoDiscountValue = appliedPromo.value;
+                    }
+                    // Ensure discount does not exceed the subtotal
+                    if (promoDiscountValue > itemSubtotal) {
+                        promoDiscountValue = itemSubtotal;
+                    }
+                }
+
+                const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
+
+                // Calculate shipping cost (Standard logic)
                 const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0; // Only add shipping if there's item subtotal
-                estimatedTime = shippingInfo.estimatedTime;
+                let calculatedShipping = 0;
+                let estimatedTime = shippingInfo.estimatedTime;
 
-                 // Calculate tax
-                 calculatedTax = itemSubtotal * TAX_RATE_PLACEHOLDER;
+                 // Only add shipping cost if there's a valid item subtotal (after promo) AND a shipping method is selected
+                if (subtotalAfterPromo > 0 && selectedShippingMethod !== "" && selectedShippingMethod !== null && !selectedShippingMethod.startsWith('-- Pilih')) {
+                    calculatedShipping = shippingInfo.cost;
+                } else {
+                    // If subtotal is 0, or shipping method not selected, shipping cost is 0
+                    calculatedShipping = 0;
+                     estimatedTime = 'Pilih opsi pengiriman'; // Reset time if no items or no shipping method
+                }
 
 
-                 // Calculate final total (only if item subtotal > 0)
-                 if (itemSubtotal > 0) {
-                     finalTotal = itemSubtotal + calculatedShipping + calculatedTax;
+                // Calculate tax (Standard logic, applied to the subtotal *after* promo discount)
+                let calculatedTax = 0;
+                 if (subtotalAfterPromo > 0) { // Only calculate tax if there's a positive amount after promo
+                     calculatedTax = subtotalAfterPromo * TAX_RATE_PLACEHOLDER;
+                 }
+
+
+                // Calculate final total (Standard logic)
+                let finalTotal = 0;
+                // Only calculate final total if there's a valid subtotal (after promo)
+                 if (subtotalAfterPromo > 0) {
+                      finalTotal = subtotalAfterPromo + calculatedShipping + calculatedTax;
                  } else {
-                     calculatedShipping = 0;
-                     calculatedTax = 0;
+                     // If subtotal is 0, total is 0
                      finalTotal = 0;
                  }
 
+
                 // Update the display elements
                 itemSubtotalDisplay.textContent = formatRupiah(itemSubtotal);
+                promoDiscountDisplay.textContent = formatRupiah(-promoDiscountValue); // Display discount as negative
                 shippingCostDisplay.textContent = formatRupiah(calculatedShipping);
                 taxAmountDisplay.textContent = formatRupiah(calculatedTax);
                 finalTotalDisplay.textContent = formatRupiah(finalTotal);
                 estimatedTimeDisplay.textContent = estimatedTime;
-            }
 
-            // Add event listeners to input elements that affect price
-            quantityInput.addEventListener('input', updateEstimatedPrice);
-            uvItemTypeSelect.addEventListener('change', updateEstimatedPrice);
-            printingSideSelect.addEventListener('change', updateEstimatedPrice);
-            shippingMethodSelect.addEventListener('change', updateEstimatedPrice);
+                // Enable/disable continue button based on required fields (UV Printing specific + Standard)
+                const isFormValidForCalculation = quantity > 0 &&
+                                                  uvItemType !== "" && uvItemType !== null && !uvItemType.startsWith('-- Pilih') &&
+                                                  printingSide !== "" && printingSide !== null && !printingSide.startsWith('-- Pilih') &&
+                                                  shippingMethodSelect.value !== "" && shippingMethodSelect.value !== null && !shippingMethodSelect.value.startsWith('-- Pilih') &&
+                                                  customerNameInput.value.trim() !== "" &&
+                                                  customerPhoneInput.value.trim() !== "" &&
+                                                  customerEmailInput.value.trim() !== "" &&
+                                                  customerAddressInput.value.trim() !== "";
+                continueButton.disabled = !isFormValidForCalculation;
+
+            } // End updateEstimatedPrice function
+
+            // Add event listener for the redeem promo button (Standard logic)
+            redeemPromoButton.addEventListener('click', function() {
+                const code = promoCodeInput.value.trim().toUpperCase();
+                if (promoCodes[code]) {
+                    appliedPromo = promoCodes[code];
+                    alert(`Promo "${appliedPromo.description}" berhasil diterapkan!`); // Use alert for simplicity here
+                } else {
+                    appliedPromo = null; // Reset applied promo if code is invalid
+                    alert("Kode promo tidak valid.");
+                }
+                // Always update price after attempting to redeem a promo
+                updateEstimatedPrice();
+            });
+
+            // Add event listeners to input elements that affect price or validation
+            quantityInput.addEventListener('input', updateEstimatedPrice); // Use 'input' for real-time updates
+            uvItemTypeSelect.addEventListener('change', updateEstimatedPrice); // UV Printing specific
+            printingSideSelect.addEventListener('change', updateEstimatedPrice); // UV Printing specific
+            shippingMethodSelect.addEventListener('change', updateEstimatedPrice); // Standard
+             customerNameInput.addEventListener('input', updateEstimatedPrice); // Standard validation listeners
+             customerPhoneInput.addEventListener('input', updateEstimatedPrice);
+             customerEmailInput.addEventListener('input', updateEstimatedPrice);
+             customerAddressInput.addEventListener('input', updateEstimatedPrice);
+             // No need for promoCodeInput listener for instant price update unless desired
 
 
             // Add event listener for the "Lanjutkan Pembayaran" button
             continueButton.addEventListener('click', function(event) {
-                 // Basic form validation check
+                 // Ensure form is valid just before submitting (redundant if button is disabled, but good practice)
                 if (!orderForm.checkValidity()) {
                     orderForm.reportValidity(); // Trigger browser's validation UI
                     return; // Stop the process
                 }
 
-                // Recalculate prices one last time
+                // Ensure price is calculated one last time with current values
                 updateEstimatedPrice();
 
                  // Recalculate values for storage based on current inputs
@@ -604,52 +774,72 @@
                  const printingSide = printingSideSelect.value;
 
                  let pricePerSingleItem = 0;
-                 if (quantity > 0 && uvItemType !== '') { // Only calculate if essential fields are filled
+                  // Only calculate if essential fields are filled and valid
+                 if (quantity > 0 && uvItemType !== "" && uvItemType !== null && !uvItemType.startsWith('-- Pilih') && printingSide !== "" && printingSide !== null && !printingSide.startsWith('-- Pilih')) {
                     pricePerSingleItem = getItemPrice(uvItemType, printingSide);
                  }
                  const itemSubtotal = quantity * pricePerSingleItem;
 
+                 let promoDiscountValue = 0;
+                 let promoDescription = "Tidak ada"; // Default text if no promo
+                 if (appliedPromo && itemSubtotal > 0) {
+                     if (appliedPromo.type === "percentage") {
+                         promoDiscountValue = itemSubtotal * appliedPromo.value;
+                     } else if (appliedPromo.type === "fixed") {
+                         promoDiscountValue = appliedPromo.value;
+                     }
+                     if (promoDiscountValue > itemSubtotal) promoDiscountValue = itemSubtotal; // Cap discount at subtotal
+                     promoDescription = appliedPromo.description + ` (${promoCodeInput.value.trim().toUpperCase()})`;
+                 }
+                 const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
 
                  const selectedShippingMethod = shippingMethodSelect.value;
                  const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                 const calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0;
-                 const calculatedTax = itemSubtotal > 0 ? itemSubtotal * TAX_RATE_PLACEHOLDER : 0;
-                 const finalTotal = itemSubtotal > 0 ? itemSubtotal + calculatedShipping + calculatedTax : 0;
+                 // Shipping only if there's a subtotal after promo AND a shipping method is selected
+                 const calculatedShipping = (subtotalAfterPromo > 0 && selectedShippingMethod !== "" && selectedShippingMethod !== null && !selectedShippingMethod.startsWith('-- Pilih')) ? shippingInfo.cost : 0;
                  const estimatedTime = shippingInfo.estimatedTime;
 
+                 const calculatedTax = subtotalAfterPromo > 0 ? subtotalAfterPromo * TAX_RATE_PLACEHOLDER : 0; // Tax only if subtotal after promo > 0
 
-                 // Prepare specific options, only include if relevant and selected
+                 const finalTotal = subtotalAfterPromo > 0 ? subtotalAfterPromo + calculatedShipping + calculatedTax : 0; // Final total only if subtotal after promo > 0
+
+
+                 // Prepare specific options for UV Printing
                  const specificOptionsData = {};
-                 if (uvItemType !== "") specificOptionsData["JenisItem"] = uvItemType;
-                 if (printingSide !== "") specificOptionsData["SisiCetak"] = printingSide;
+                 if (uvItemType !== "" && uvItemType !== null && !uvItemType.startsWith('-- Pilih')) specificOptionsData["Jenis Item"] = uvItemType; // Key adjusted for display
+                 if (printingSide !== "" && printingSide !== null && !printingSide.startsWith('-- Pilih')) specificOptionsData["Sisi Cetak"] = printingSide; // Key adjusted for display
 
 
-                 // Gather all relevant data to pass to the payment page
+                 // Gather all relevant data to pass to the payment page (Standard structure)
                  const orderData = {
-                     productName: "Cetak UV Printing",
+                     productName: "Cetak UV Printing", // Product name
                      quantity: quantity,
-                     specificOptions: specificOptionsData, // Data spesifik produk ini (filtered)
-                     // Info Pelanggan dan Pengiriman
+                     specificOptions: specificOptionsData, // Data spesifik produk ini (UV Printing options)
+                     // Info Pelanggan dan Pengiriman (Standard fields)
                      customerName: customerNameInput.value,
                      customerPhone: customerPhoneInput.value,
                      customerEmail: customerEmailInput.value,
                      customerAddress: customerAddressInput.value,
-                     shippingMethod: selectedShippingMethod,
+                     shippingMethod: selectedShippingMethod, // Store key like 'standard'
                      shippingMethodDisplay: shippingInfo.estimatedTime !== 'Pilih opsi pengiriman' ? shippingOptions[selectedShippingMethod]?.estimatedTime + ' (' + selectedShippingMethod.charAt(0).toUpperCase() + selectedShippingMethod.slice(1) + ')' : 'Belum dipilih', // Display string
                      notes: notesInput.value,
 
-                     // Detail Ringkasan Harga
+                     // Detail Ringkasan Harga (Standard breakdown)
                      itemSubtotal: itemSubtotal,
+                     promoApplied: promoDescription, // Store promo description and code
+                     promoDiscountAmount: promoDiscountValue, // Store discount amount
+                     subtotalAfterPromo: subtotalAfterPromo, // Store subtotal after promo
                      shippingCost: calculatedShipping,
                      taxAmount: calculatedTax,
                      finalTotal: finalTotal,
                      estimatedTime: estimatedTime
                  };
 
-                 // Store the data in localStorage
+                 // Store the data in localStorage (Standard process)
                  localStorage.setItem('currentOrderData', JSON.stringify(orderData));
 
-                 // Redirect to the payment page
+                 // Redirect to the payment page (Standard redirect)
                  window.location.href = 'payment.html';
              });
 
@@ -661,4 +851,3 @@
 
   </body>
 </html>
---- END OF FILE order-uv-printing.html ---

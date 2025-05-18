@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id"> <!-- Diubah ke id -->
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,16 @@
      <link rel="stylesheet" href="">
     <!-- Font -->
 
+    <!-- Animate Css -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Animate Css -->
+
+    <!-- Animate Scroll CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Animate Scroll CSS -->
+
     <!--Bootstraps CSS-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
@@ -32,111 +42,159 @@
     <!--Bootstraps CSS-->
 
     <style>
-        /* Optional: Tambahkan styling khusus untuk halaman form */
-        .order-page-section {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        .product-image-preview {
-            border: 1px solid #ccc; /* Add border around carousel */
-            border-radius: 5px; /* Match form border radius */
-            overflow: hidden; /* Ensure corners are rounded */
-            background-color: #f8f9fa; /* Light background */
-            /* Optional: Adjust padding if needed inside */
-            /* padding: 10px; */
+        /* Copying style from provided fancy paper code */
+        .detail-product{
+            text-align: justify;
         }
 
-         /* Style for carousel images to be responsive */
-         .carousel-item img {
-            width: 100%; /* Make image take full width of carousel item */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove extra space below image */
-            /* Optional: set a max-height if needed, might cause empty space or need object-fit */
-            /* max-height: 400px; */
-            /* object-fit: contain; /* or 'cover' depending on desired effect */
-         }
-
-        .product-config-form {
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-        /* Styling for the moved details section below the carousel */
-        .details-below-carousel { /* Generic class */
-            margin-top: 20px; /* Add some space above the text */
-            /* Add padding or other styles if needed */
-            padding-top: 15px;
-            border-top: 1px solid #eee; /* Optional: Add a separator line */
+        .product-form{
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px; /* Corrected typo 'behaved' */
+          background-color: #f9f9f9;
         }
 
-        .details-below-carousel ul {
-            margin-bottom: 1rem; /* Add space below lists */
+        .checkout-summary{
+          background-color: #e9ecef;
+          padding: 20px;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
         }
 
-        /* === Styling for the new checkout summary section === */
-        .checkout-summary {
-             background-color: #e9ecef; /* Light grey background */
-             border: 1px solid #ced4da;
-             border-radius: 5px;
-             padding: 20px; /* Increased padding */
-             margin-top: 20px; /* Space above this section */
+        .price-breakdown{
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 0.75rem;
         }
-         .checkout-summary h4 {
-             margin-top: 0; /* Remove top margin from title */
-             margin-bottom: 15px; /* Space below title */
-             text-align: center;
-         }
-        /* === End Styling for the new checkout summary section === */
 
-
-        .price-summary { /* Keep existing price summary styles, now inside checkout-summary */
-            /* background-color: #d4edda; /* Light green background - Optional, can remove if inside checkout-summary */
-            border: none; /* Remove border if inside checkout-summary */
-            padding: 0; /* Remove padding if inside checkout-summary */
-            border-radius: 0; /* Remove border-radius if inside checkout-summary */
-            margin-bottom: 0; /* Space below price summary list */
-        }
-         .price-summary h4 {
-             margin-bottom: 10px;
-             text-align: center; /* Center title */
-         }
-         .price-breakdown {
-             list-style: none;
-             padding: 0;
-             margin: 0;
-         }
          .price-breakdown li {
              display: flex;
              justify-content: space-between;
+             align-items: flex-start;
              margin-bottom: 5px;
              padding-bottom: 5px;
-             border-bottom: 1px dotted #a7c2a7; /* Dotted line for separation */
+             border-bottom: 1px dotted #a7c2a7;
+             font-size: 0.9rem;
          }
+
+         .price-breakdown li span{
+          word-break: break-word;
+         }
+
+         .price-breakdown li span:first-child{
+          margin-right: 15px;
+         }
+
+         .price-breakdown li span:last-child{
+          text-align: right;
+          font-weight: 500;
+         }
+
          .price-breakdown li:last-child {
              border-bottom: none;
              margin-top: 10px;
              padding-top: 10px;
-             font-size: 1.2em; /* Larger font for total */
+             font-size: 1.05rem;
              font-weight: bold;
-             border-top: 1px solid #a7c2a7; /* Solid line above total */
+             border-top: 1px solid #a7c2a7;
          }
           .price-breakdown li span:first-child {
-              font-weight: normal; /* Label not bold */
+              font-weight: normal;
           }
           .price-breakdown li:last-child span {
-               font-weight: bold; /* Both label and value bold for total */
+               font-weight: bold;
           }
 
+           .price-summary > small.text-muted {
+            text-align: center;
+            display: block;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Styles for the detail navigation (copied from provided fancy paper) */
+        @media (max-width: 575.98px) {
+            #navbar-detail-product .nav-pills.flex-column .nav-item {
+              width: 100%;
+              margin-bottom: 0.35rem;
+            }
+            #navbar-detail-product .nav-pills.flex-column .nav-item:last-child {
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-column .nav-link {
+              text-align: center;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+              padding-left: 100px; /* Kept wide padding as seen in original */
+              padding-right: 100px; /* Kept wide padding as seen in original */
+              font-size: 0.9rem;
+            }
+          }
+
+          @media (min-width: 576px) and (max-width: 767.98px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: 100%; /* Changed to 100% for small-medium screens */
+              margin-bottom: 0.35rem; /* Added margin */
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:last-child {
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              text-align: center;
+              padding-top: 0.4rem;
+              padding-bottom: 0.4rem;
+              font-size: 0.875rem;
+            }
+          }
+
+
+          @media (min-width: 768px) and (max-width: 991.98px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: auto;
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:not(:last-child) {
+              margin-right: 0.25rem;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              padding-left: 0.6rem;
+              padding-right: 0.6rem;
+              padding-top: 0.4rem;
+              padding-bottom: 0.4rem;
+              font-size: 0.8rem;
+              white-space: nowrap;
+              text-align: center;
+            }
+          }
+
+
+          @media (min-width: 992px) {
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item {
+              width: auto;
+              margin-bottom: 0;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-item:not(:last-child) {
+              margin-right: 0.5rem;
+            }
+            #navbar-detail-product .nav-pills.flex-sm-row .nav-link {
+              padding-left: 1rem;
+              padding-right: 1rem;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+              font-size: 0.9rem;
+              white-space: normal;
+              text-align: center;
+            }
+          }
 
     </style>
 
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary py-3">
+    <nav class="navbar navbar-expand-lg bg-primary py-3 animate__animated animate__fadeInDown">
       <div class="container">
-        <a class="navbar-brand" href="index.html"> <!-- Link kembali ke halaman utama -->
+        <a class="navbar-brand animate__animated animate__fadeInLeft animate__delay-1s" href="index.html">
           <img
             src="./assets/2.png"
             alt="Logo"
@@ -146,7 +204,7 @@
           />
           <span class="fs-3 fw-bold text-white">RNR Digital Printing</span>
         </a>
-         <button
+        <button
           class="navbar-toggler bg-white shadow-none"
           type="button"
           data-bs-toggle="collapse"
@@ -158,184 +216,216 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
+          <ul class="navbar-nav ms-auto d-flex gap-2 text-center pt-lg-0 pt-4">
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#about">About</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#order-guide">How To Order</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a> <!-- Link ke section di index -->
+              <a class="nav-link fw-bold text-white" href="index.html#faq">FAQ</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
+    <!-- Navbar -->
 
     <section class="order-page-section">
         <div class="container">
-
-            <h1 class="text-primary text-center mb-5">Checkout Cetak Kemasan & Label Produk</h1>
-
-            <div class="row g-4"> <!-- Use g-4 for gutter spacing -->
-
-                <!-- Left Column: Product Image/Preview Carousel + Details Below -->
+            <h1 class="display-5 fw-bold text-center mb-5">Halaman Pemesanan Kemasan & Label Produk</h1> <!-- Title adjusted -->
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="product-image-preview">
-                        <!-- Bootstrap Carousel goes here -->
-                        <div id="packagingCarousel" class="carousel slide" data-bs-ride="carousel">
-                            <!-- Indicators -->
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#packagingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#packagingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                               <!-- Tambahkan lebih banyak tombol di sini jika ada lebih dari 2 gambar -->
-                            </div>
 
-                            <!-- Carousel Inner -->
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="./assets/8.jpeg" class="d-block w-100" alt="Label Produk Example 1">
-                              </div>
-                              <div class="carousel-item">
-                                <img src="./assets/packaging_example_2.jpg" class="d-block w-100" alt="Kemasan Example 2">
-                              </div>
-                               <!-- Tambahkan lebih banyak .carousel-item di sini -->
-                               <!-- Contoh untuk Mug: -->
-                               <!-- <div class="carousel-item">
-                                <img src="./assets/mug_example.jpg" class="d-block w-100" alt="Mug Sublim Example">
-                               </div> -->
-                            </div>
+                    <!-- Carousel -->
+                    <div id="packagingCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#packagingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#packagingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#packagingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="./assets/12.jpeg" class="d-block w-100" alt="Contoh Cetak Kemasan dan Label 1">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/13.jpeg" class="d-block w-100" alt="Contoh Cetak Kemasan dan Label 2">
+        </div>
+        <div class="carousel-item">
+            <img src="./assets/kemasan.jpeg" class="d-block w-100" alt="Contoh Cetak Kemasan dan Label 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#packagingCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#packagingCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+                    <!-- Carousel -->
 
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#packagingCarousel" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#packagingCarousel" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                    </div>
-
-                    <!-- Moved Section for Product Details -->
-                    <div class="details-below-carousel">
-                         <p class="text-muted small text-center fst-italic">
-                            </p>
-
-                        <h3>Detail Produk Cetak Kemasan & Label</h3>
-                        <p class="lh-lg">
-                           Tingkatkan daya tarik produk Anda dengan kemasan dan label berkualitas tinggi dari RNR Digital Printing. Kami menyediakan solusi cetak untuk berbagai kebutuhan bisnis, mulai dari label stiker untuk botol, kemasan makanan, hingga packaging custom seperti mug sublim.
-                        </p>
-                        <h4>Layanan Kami Meliputi:</h4>
-                        <ul>
-                            <li>**Label Stiker:** Cetak stiker label produk dalam berbagai bentuk (kotak, bulat, custom cut/die cut) menggunakan bahan Vinyl (tahan air dan minyak) atau Bontak (kertas). Cocok untuk label makanan, minuman, kosmetik, inventaris, dll.</li>
-                            <li>**Stiker Kemasan:** Mempercantik tampilan kemasan primer atau sekunder Anda dengan stiker branding berkualitas.</li>
-                            <li>**Packaging Custom:** Cetak pada media packaging tertentu seperti Mug Sublim untuk merchandise atau hadiah.</li>
+                    <!-- Product Details Section with Scrollspy Nav -->
+                    <div class="detail-product mt-5 text-justify">
+                      <nav id="navbar-detail-product" class="navbar navbar-light bg-light px-3">
+                        <a class="navbar-brand" href="#"></a>
+                        <ul class="nav nav-pills flex-column flex-sm-row flex-wrap mx-auto mb">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading1">Detail Product</a> <!-- Link text matches fancy paper image -->
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading2">Layanan Kami</a> <!-- Link text matches fancy paper image -->
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#scrollspyHeading3">Pilihan Bahan</a> <!-- Link text matches fancy paper image -->
+                          </li>
+                           <li class="nav-item">
+                             <a class="nav-link" href="#scrollspyHeading4">Pilihan Finishing</a> <!-- Link text matches fancy paper image -->
+                           </li>
+                           <li class="nav-item">
+                             <a class="nav-link" href="#scrollspyHeading5">Tipe Desain</a> <!-- Link text matches fancy paper image -->
+                           </li>
                         </ul>
+                      </nav>
 
-                         <h4>Pilihan Bahan Stiker:</h4>
-                         <ul>
-                             <li>**Vinyl:** Bahan plastik, kuat, tahan air dan minyak. Tersedia pilihan Doff (matte) atau Glossy (mengkilap). Sangat cocok untuk produk yang mungkin terpapar kelembaban atau gesekan.</li>
-                             <li>**Bontak:** Bahan dasar kertas dengan permukaan halus. Cocok untuk penggunaan indoor atau produk yang tidak terpapar air.</li>
-                         </ul>
-
-                        <h4>Pilihan Finishing & Potong:</h4>
-                         <ul>
-                             <li>**Laminasi (Doff/Glossy):** Melapisi stiker untuk perlindungan ekstra dan efek visual (matte atau mengkilap).</li>
-                             <li>**UV Varnish:** Pelapis kilap tambahan (bisa spot di area tertentu) untuk efek premium.</li>
-                             <li>**Potong Kotak/Persegi:** Potongan standar.</li>
-                             <li>**Kiss Cut:** Stiker terpotong sesuai bentuk tapi backing paper tidak terpotong, memudahkan pengelupasan.</li>
-                             <li>**Die Cut:** Stiker dan backing paper terpotong putus sesuai bentuk custom.</li>
-                         </ul>
-
-                        <h4>Tips Desain:</h4>
-                        <p>Untuk hasil cetak kemasan & label terbaik:</p>
-                         <ul>
+                  <div data-bs-spy="scroll" data-bs-target="#navbar-detail-product" data-bs-offset="0" class="scrollspy-example mt-5" tabindex="0">
+                    <h4 id="scrollspyHeading1">Detail Produk Cetak Kemasan & Label</h4> <!-- Heading adjusted -->
+                      <p class="lh-lg">
+                         Tingkatkan daya tarik produk Anda dengan kemasan dan label berkualitas tinggi dari RNR Digital Printing. Kami menyediakan solusi cetak untuk berbagai kebutuhan bisnis, mulai dari label stiker untuk botol, kemasan makanan, hingga packaging custom seperti mug sublim.
+                      </p>
+                      <p class="lh-lg">
+                        Kemasan dan label yang menarik sangat penting untuk:
+                      </p>
+                      <ul class="mb-5">
+                        <li>Memberikan identitas visual yang kuat pada produk.</li>
+                        <li>Memberikan informasi penting kepada konsumen (bahan, cara pakai, tanggal kadaluarsa, dll.).</li>
+                        <li>Meningkatkan nilai jual dan daya saing produk di pasaran.</li>
+                        <li>Melindungi produk selama distribusi dan penyimpanan.</li>
+                        <li>Membangun kepercayaan konsumen terhadap merek Anda.</li>
+                      </ul>
+                    <h4 id="scrollspyHeading2">Layanan Kami Meliputi</h4> <!-- Heading adjusted -->
+                     <p class="lh-lg">
+                        Kami menawarkan berbagai layanan cetak kemasan dan label dengan opsi kustomisasi yang luas.
+                     </p>
+                      <ul class="mb-5">
+                          <li><b>Label Stiker:</b> Cetak stiker label produk dalam berbagai bentuk (kotak, bulat, custom cut/die cut) menggunakan bahan Vinyl (tahan air dan minyak) atau Bontak (kertas). Cocok untuk label makanan, minuman, kosmetik, inventaris, dll.</li> <!-- Formatting adjusted -->
+                          <li><b>Stiker Kemasan:</b> Mempercantik tampilan kemasan primer atau sekunder Anda dengan stiker branding berkualitas.</li> <!-- Formatting adjusted -->
+                          <li><b>Packaging Custom:</b> Cetak pada media packaging tertentu seperti Mug Sublim untuk merchandise atau hadiah. Kami juga melayani cetak pada kotak/packaging berbahan kertas/karton (sesuai ketersediaan).</li> <!-- Formatting adjusted -->
+                      </ul>
+                    <h4 id="scrollspyHeading3">Pilihan Bahan Stiker</h4> <!-- Heading adjusted -->
+                       <p class="lh-lg">
+                         Untuk label stiker, kami menyediakan beberapa pilihan bahan utama dengan karakteristik berbeda:
+                       </p>
+                        <ul class="mb-5">
+                            <li><b>Vinyl:</b> Bahan plastik, kuat, tahan air dan minyak. Tersedia pilihan Doff (matte) atau Glossy (mengkilap). Sangat cocok untuk produk yang mungkin terpapar kelembaban atau gesekan.</li> <!-- Formatting adjusted -->
+                            <li><b>Bontak:</b> Bahan dasar kertas dengan permukaan halus. Cocok untuk penggunaan indoor atau produk yang tidak terpapar air.</li> <!-- Formatting adjusted -->
+                            <!-- Tambahkan bahan stiker lain jika ada -->
+                        </ul>
+                    <h4 id="scrollspyHeading4">Pilihan Finishing & Potong</h4> <!-- Heading adjusted -->
+                       <p class="lh-lg">
+                         Finishing dan pilihan potong dapat meningkatkan tampilan visual dan fungsi label stiker Anda.
+                       </p>
+                        <ul class="mb-5">
+                             <li><b>Laminasi (Doff/Glossy):</b> Melapisi stiker untuk perlindungan ekstra dan efek visual (matte atau mengkilap).</li> <!-- Formatting adjusted -->
+                             <li><b>UV Varnish:</b> Pelapis kilap tambahan (bisa spot di area tertentu) untuk efek premium.</li> <!-- Formatting adjusted -->
+                             <li><b>Potong Kotak/Persegi:</b> Potongan standar.</li> <!-- Formatting adjusted -->
+                             <li><b>Kiss Cut:</b> Stiker terpotong sesuai bentuk tapi backing paper tidak terpotong, memudahkan pengelupasan.</li> <!-- Text adjusted -->
+                             <li><b>Die Cut:</b> Stiker dan backing paper terpotong putus sesuai bentuk custom.</li> <!-- Text adjusted -->
+                        </ul>
+                    <h4 id="scrollspyHeading5">Tipe Desain</h4> <!-- Heading adjusted -->
+                    <p>Untuk hasil cetak kemasan & label terbaik:</p>
+                      <ul>
                              <li>Pastikan resolusi desain tinggi (minimal 300 DPI).</li>
                              <li>Gunakan mode warna CMYK.</li>
                              <li>Untuk potong bentuk custom (Die Cut/Kiss Cut), pastikan ada garis potong (cutting path) pada file desain Anda (format AI, CDR, EPS, SVG lebih disarankan).</li>
                              <li>Pertimbangkan ukuran dan area penempatan label pada produk Anda.</li>
+                             <li>Jika mencetak pada Packaging Custom, perhatikan area cetak yang tersedia pada media tersebut.</li>
                          </ul>
-                        <p>Hubungi kami jika Anda memerlukan bantuan desain atau konsultasi spesifikasi produk.</p>
-                    </div>
+                        <p>Hubungi kami jika Anda memerlukan bantuan desain atau konsultasi spesifikasi produk.</p> <!-- Closing paragraph -->
+                  </div>
+
                 </div>
 
-                <!-- Right Column: Configuration Form -->
+                </div>
+
                 <div class="col-md-6">
-                    <div class="product-config-form rounded">
-                        <h3>Konfigurasi Pesanan</h3>
-                        <p class="text-muted mb-4">Sesuaikan pilihan cetak kemasan dan label Anda.</p>
+                  <div class="product-form">
+                    <h3 class="text-center">Form Pemesanan</h3>
+                    <p class="text-muted mb-4">Sesuaikan pilihan cetakan anda</p>
 
-                         <!-- Formulir Pemesanan Kemasan & Label -->
-                        <form id="packagingOrderForm" enctype="multipart/form-data">
-                           <input type="hidden" name="product" value="Cetak Kemasan & Label Produk">
+                    <form id="packagingOrderForm" enctype="multipart/form-data"> <!-- ID adjusted -->
+                      <input type="hidden" name="product" value="Cetak Kemasan & Label Produk"> <!-- Product name adjusted -->
 
-                           <div class="mb-3">
-                             <label for="packagingType" class="form-label">Jenis Produk <span class="text-danger">*</span></label>
-                             <select class="form-select" id="packagingType" name="packagingType" required>
-                                 <option value="">-- Pilih Jenis Produk --</option>
-                                 <option value="Label Stiker">Label Stiker (Vinyl/Bontak)</option>
+                      <div class="mb-3">
+                             <label for="packagingType" class="form-label">Jenis Produk <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <select class="form-select" id="packagingType" name="packagingType" required> <!-- ID adjusted -->
+                                 <option value="" disabled selected>-- Pilih Jenis Produk --</option>
+                                 <option value="Label Stiker">Label Stiker</option>
                                  <option value="Packaging Custom">Packaging Custom (Contoh: Mug)</option>
                              </select>
+                             <small class="form-text text-muted">Pilih "Label Stiker" atau "Packaging Custom".</small> <!-- Added helper text -->
                            </div>
 
-                           <div class="mb-3">
-                             <label for="materialType" class="form-label">Jenis Bahan (Untuk Label Stiker)</label>
-                             <select class="form-select" id="materialType" name="materialType">
-                                 <option value="">-- Pilih Bahan Stiker (Jika Label) --</option>
-                                 <option value="Vinyl Doff">Vinyl Doff (Tahan Air, Hasil Matte)</option>
-                                 <option value="Vinyl Glossy">Vinyl Glossy (Tahan Air, Hasil Mengkilap)</option>
+                           <!-- Fields conditionally relevant for Label Stiker -->
+                           <div class="mb-3" id="materialTypeGroup">
+                             <label for="materialType" class="form-label">Jenis Bahan Stiker <span class="text-danger">*</span></label> <!-- Label Adjusted, ID adjusted -->
+                             <select class="form-select" id="materialType" name="materialType" disabled required> <!-- ID adjusted, set required -->
+                                 <option value="" disabled selected>-- Pilih Bahan Stiker (Jika Label) --</option>
+                                 <option value="Vinyl Doff">Vinyl Doff (Tahan Air, Matte)</option>
+                                 <option value="Vinyl Glossy">Vinyl Glossy (Tahan Air, Mengkilap)</option>
                                  <option value="Bontak">Bontak (Kertas, Tidak Tahan Air)</option>
                              </select>
-                             <small class="form-text text-muted">Pilihan ini relevan untuk Label Stiker.</small>
+                             <small class="form-text text-muted">Pilihan ini wajib jika Anda memilih "Label Stiker".</small> <!-- Added helper text -->
                            </div>
 
-                            <div class="mb-3">
-                               <label for="cutType" class="form-label">Jenis Potong (Untuk Label Stiker)</label>
-                               <select class="form-select" id="cutType" name="cutType">
-                                   <option value="">-- Pilih Jenis Potong (Jika Label) --</option>
+                            <div class="mb-3" id="cutTypeGroup">
+                               <label for="cutType" class="form-label">Jenis Potong Stiker <span class="text-danger">*</span></label> <!-- Label Adjusted, ID adjusted -->
+                               <select class="form-select" id="cutType" name="cutType" disabled required> <!-- ID adjusted, set required -->
+                                   <option value="" disabled selected>-- Pilih Jenis Potong (Jika Label) --</option>
                                    <option value="Kotak/Persegi">Kotak/Persegi</option>
-                                   <option value="Kiss Cut">Kiss Cut (Potong bentuk, stiker bisa dilepas dari lembaran)</option>
-                                   <option value="Die Cut">Die Cut (Potong putus sesuai bentuk)</option>
+                                   <option value="Kiss Cut">Kiss Cut (stiker terkelupas)</option> <!-- Text adjusted -->
+                                   <option value="Die Cut">Die Cut (potong putus)</option> <!-- Text adjusted -->
                                </select>
-                               <small class="form-text text-muted">Pilihan ini relevan untuk Label Stiker.</small>
+                               <small class="form-text text-muted">Pilihan ini wajib jika Anda memilih "Label Stiker".</small> <!-- Added helper text -->
                              </div>
+                            <!-- End conditionally relevant fields -->
+
 
                             <div class="mb-3">
-                                <label for="finishingPackaging" class="form-label">Finishing Tambahan (opsional)</label>
-                                <select class="form-select" id="finishingPackaging" name="finishingPackaging">
-                                    <option value="">-- Pilih Finishing --</option>
+                                <label for="finishingPackaging" class="form-label">Finishing Tambahan (opsional)</label> <!-- ID adjusted -->
+                                <select class="form-select" id="finishingPackaging" name="finishingPackaging"> <!-- ID adjusted -->
+                                    <option value="" selected>-- Pilih Finishing --</option> <!-- Changed to selected empty for optional -->
                                     <option value="None">Tidak Ada</option>
-                                    <option value="Laminasi Doff">Laminasi Doff (Untuk Stiker/Kemasan Kertas)</option>
-                                    <option value="Laminasi Glossy">Laminasi Glossy (Untuk Stiker/Kemasan Kertas)</option>
-                                    <option value="UV Varnish">UV Varnish (Spot/Full)</option>
+                                    <option value="Laminasi Doff">Laminasi Doff</option>
+                                    <option value="Laminasi Glossy">Laminasi Glossy</option>
+                                    <option value="UV Varnish">UV Varnish</option>
                                 </select>
+                                <small class="form-text text-muted">Pilihan finishing tambahan.</small> <!-- Added helper text -->
                               </div>
 
                            <div class="mb-3">
-                             <label for="quantityPackaging" class="form-label">Jumlah Pesanan (pcs/lembar/roll) <span class="text-danger">*</span></label>
-                             <input type="number" class="form-control" id="quantityPackaging" name="quantity" min="1" required value="1">
-                             <small class="form-text text-muted">Sebutkan unit di catatan jika perlu.</small>
+                             <label for="quantityPackaging" class="form-label">Jumlah Pesanan (pcs) <span class="text-danger">*</span></label> <!-- ID adjusted, simplified unit text -->
+                             <input type="number" class="form-control" id="quantityPackaging" name="quantity" min="1" required value="1"> <!-- ID adjusted -->
+                             <small class="form-text text-muted">Masukkan jumlah unit yang diinginkan.</small> <!-- Simplified helper text -->
                            </div>
 
                            <div class="mb-3">
-                             <label for="fileUploadPackaging" class="form-label">Unggah File Desain <span class="text-danger">*</span></label>
-                             <input class="form-control" type="file" id="fileUploadPackaging" name="designFile" accept=".pdf,.jpg,.jpeg,.png,.ai,.cdr,.eps,.svg" required>
+                             <label for="fileUploadPackaging" class="form-label">Unggah File Desain <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                             <input class="form-control" type="file" id="fileUploadPackaging" name="designFile" accept=".pdf,.jpg,.jpeg,.png,.ai,.cdr,.eps,.svg" required> <!-- ID adjusted -->
                              <small class="form-text text-muted">Format file yang didukung: PDF, JPG, PNG, AI, CDR, EPS, SVG. Untuk potong bentuk (die/kiss cut), sertakan garis potong di file desain.</small>
                            </div>
 
                            <div class="mb-3">
-                             <label for="notesPackaging" class="form-label">Catatan Tambahan (Ukuran, bentuk custom, detail bahan, dll.)</label>
-                             <textarea class="form-control" id="notesPackaging" name="notes" rows="4" placeholder="Contoh: Ukuran stiker 5x5 cm bentuk lingkaran, bahan vinyl glossy, untuk Mug: desain di kanan pegangan"></textarea>
+                             <label for="notesPackaging" class="form-label">Catatan Tambahan (Ukuran, bentuk custom, detail bahan, dll.)</label> <!-- ID adjusted -->
+                             <textarea class="form-control" id="notesPackaging" name="notes" rows="4" placeholder="Contoh: Ukuran stiker 5x5 cm bentuk lingkaran, bahan vinyl glossy, untuk Mug: desain di kanan pegangan"></textarea> <!-- ID adjusted -->
                            </div>
 
                             <!-- Bidang Kontak & Pengiriman -->
@@ -345,7 +435,7 @@
                             <div class="mb-3">
                                <label for="shippingMethod" class="form-label">Pilih Opsi Pengiriman <span class="text-danger">*</span></label>
                                <select class="form-select" id="shippingMethod" name="shippingMethod" required>
-                                   <option value="">-- Pilih Opsi --</option>
+                                   <option value="" disabled selected>-- Pilih Opsi --</option>
                                    <option value="pickup">Ambil Sendiri di Toko (Gratis)</option>
                                    <option value="standard">Kurir Standar (Estimasi 2-3 Hari Kerja)</option>
                                    <option value="express">Kurir Express (Estimasi 1-2 Hari Kerja)</option>
@@ -353,32 +443,45 @@
                              </div>
 
                             <div class="mb-3">
-                              <label for="customerNamePackaging" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                              <input type="text" class="form-control" id="customerNamePackaging" name="customerName" required>
+                              <label for="customerNamePackaging" class="form-label">Nama Lengkap <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                              <input type="text" class="form-control" id="customerNamePackaging" name="customerName" required> <!-- ID adjusted -->
                             </div>
                             <div class="mb-3">
-                              <label for="customerPhonePackaging" class="form-label">Nomor Telepon/WhatsApp <span class="text-danger">*</span></label>
-                              <input type="tel" class="form-control" id="customerPhonePackaging" name="customerPhone" required>
+                              <label for="customerPhonePackaging" class="form-label">Nomor Telepon/WhatsApp <span class="text-danger">*</span></label> <!-- ID adjusted -->
+                              <input type="tel" class="form-control" id="customerPhonePackaging" name="customerPhone" required> <!-- ID adjusted -->
                               <small class="form-text text-muted">Kami akan menghubungi Anda melalui nomor ini.</small>
                             </div>
                              <div class="mb-3">
-                              <label for="customerEmailPackaging" class="form-label">Email (opsional)</label>
-                              <input type="email" class="form-control" id="customerEmailPackaging" name="customerEmail">
+                              <label for="customerEmailPackaging" class="form-label">Email <span class="text-danger">*</span></label> <!-- ID adjusted, set required -->
+                              <input type="email" class="form-control" id="customerEmailPackaging" name="customerEmail" required> <!-- ID adjusted, set required -->
                             </div>
                              <div class="mb-3">
-                              <label for="customerAddressPackaging" class="form-label">Alamat Pengiriman (opsional)</label>
-                              <textarea class="form-control" id="customerAddressPackaging" name="customerAddress" rows="3"></textarea>
-                              <small class="form-text text-muted">Isi jika pesanan perlu dikirim.</small>
+                              <label for="customerAddressPackaging" class="form-label">Alamat Pengiriman <span class="text-danger">*</span></label> <!-- Added required indicator -->
+                              <textarea class="form-control" id="customerAddressPackaging" name="customerAddress" rows="3" required></textarea> <!-- ID adjusted, set required -->
+                              <small class="form-text text-muted">Isi alamat lengkap untuk pengiriman.</small> <!-- Updated helper text -->
                             </div>
+
+                             <div class="mb-3"> <!-- Promo Code Input Group -->
+                                <label for="promoCodeInput" class="form-label">Kode Promo (opsional)</label>
+                                 <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Masukkan Kode Promo" id="promoCodeInput">
+                                    <button type="button" class="btn btn-secondary" id="redeemPromoButton">Redeem</button>
+                                 </div>
+                            </div>
+
 
                            <!-- Checkout Summary Section -->
                            <div class="checkout-summary mt-4">
-                               <h4>Ringkasan Pesanan</h4>
+                               <h4 class="mb-3 text-center">Ringkasan Pesanan</h4>
                                <div class="price-summary">
                                     <ul class="price-breakdown">
                                         <li>
                                             <span>Subtotal Item:</span>
                                             <span id="itemSubtotal">Rp 0</span>
+                                        </li>
+                                         <li> <!-- Promo Discount Display -->
+                                            <span>Promo:</span>
+                                            <span id="promoDiscountDisplay">Rp 0</span>
                                         </li>
                                         <li>
                                             <span>Estimasi Sampai:</span>
@@ -402,7 +505,7 @@
 
                                <!-- Tombol Lanjutkan Pembayaran -->
                                <div class="d-grid gap-2 mt-4">
-                                 <button type="button" class="btn btn-primary btn-lg" id="continueToPaymentButton">Lanjutkan Pembayaran</button> <!-- Diubah type="button" dan diberi ID -->
+                                 <button type="button" class="btn btn-primary btn-lg" id="continueToPaymentButton" disabled>Lanjutkan Pembayaran</button> <!-- Diubah type="button" dan diberi ID, default disabled -->
                                  <a href="index.html#services" class="btn btn-secondary btn-lg">Kembali ke Layanan</a>
                                </div>
                            </div>
@@ -451,13 +554,14 @@
     </section>
     <!-- Footer -->
 
-    <!--Bootstraps JS-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <!--Bootstraps JS-->
+    <!-- Animate Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Animate Scroll JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script Perkiraan Harga dan Redirect ke Payment Page -->
     <script>
@@ -465,6 +569,7 @@
             // Get references to price display elements
             const itemSubtotalDisplay = document.getElementById('itemSubtotal');
             const shippingCostDisplay = document.getElementById('shippingCost');
+            const promoDiscountDisplay = document.getElementById('promoDiscountDisplay'); // Promo display
             const taxAmountDisplay = document.getElementById('taxAmount');
             const finalTotalDisplay = document.getElementById('finalTotal');
             const estimatedTimeDisplay = document.getElementById('estimatedTime');
@@ -484,6 +589,14 @@
             const continueButton = document.getElementById('continueToPaymentButton');
             const orderForm = document.getElementById('packagingOrderForm');
 
+             // Get references to promo elements
+             const promoCodeInput = document.getElementById('promoCodeInput');
+             const redeemPromoButton = document.getElementById('redeemPromoButton');
+
+             // Get references to conditionally visible fields
+             const materialTypeGroup = document.getElementById('materialTypeGroup');
+             const cutTypeGroup = document.getElementById('cutTypeGroup');
+
 
             // Define costs and times (REPLACE WITH YOUR ACTUAL PRICING LOGIC)
             const TAX_RATE_PLACEHOLDER = 0.10; // Example 10% tax rate
@@ -496,29 +609,44 @@
                  'express': { cost: 30000, estimatedTime: '1-2 Hari Kerja' } // Example cost
             };
 
+             // Simple hardcoded promo codes (Same as Fancy Paper for consistency)
+             const promoCodes = {
+                 "HEMAT10": { type: "percentage", value: 0.10, description: "Diskon 10%" },
+                 "DISKON5K": { type: "fixed", value: 5000, description: "Potongan Rp 5.000" },
+                 "RNRMANTAP": { type: "percentage", value: 0.05, description: "Diskon 5%"}
+             };
+             let appliedPromo = null; // Variable to store the currently applied promo object
+
+
              // Define base prices/cost multipliers per item configuration (REPLACE THESE)
              function getItemPrice(packagingType, materialType, cutType, finishingPackaging) { // Parameters specific to Packaging
                  // --- LOGIKA HARGA ANDA DI SINI ---
                  // Fungsi ini harus mengembalikan harga SATU unit item berdasarkan konfigurasi yang dipilih.
+                 // HARGA DI BAWAH INI ADALAH CONTOH ARBITRER. SILAKAN GANTI DENGAN HARGA NYATA ANDA.
+                 // Untuk Label Stiker, harga sangat bergantung pada UKURAN, yang TIDAK ADA di form ini.
+                 // Implementasi ini hanya contoh SANGAT SEDERHANA.
+
                 let basePricePerItem = 0; // Default base price is 0
 
                 if (packagingType === 'Label Stiker') {
-                    // Logika harga untuk Label Stiker (Arbitrer Sederhana)
-                    // Harga per stiker bisa sangat bervariasi tergantung ukuran, bentuk, bahan, dan jumlah.
-                    // Ini contoh SANGAT SEDERHANA berdasarkan bahan dan jenis potong.
-                    // Realitanya butuh input ukuran (PxL atau Diameter) untuk kalkulasi luas atau per meter lari.
-
+                    // Logika harga untuk Label Stiker (SANGAT SEDERHANA TANPA UKURAN)
+                    // Ini mengasumsikan harga per STIKER per LEMBAR atau per PCS dengan ukuran standar kecil.
+                    // Implementasi riil butuh input ukuran.
                      let pricePerSticker = 500; // Harga dasar stiker kecil bontak kotak (Example)
+
+                    // Cek apakah bahan dan jenis potong dipilih - ini WAJIB untuk Label Stiker
+                     if (materialType === "" || materialType === null || materialType.startsWith('-- Pilih') ||
+                         cutType === "" || cutType === null || cutType.startsWith('-- Pilih')) {
+                         return 0; // Cannot calculate price if essential details are missing for Label Stiker
+                     }
+
                      if (materialType === 'Vinyl Doff' || materialType === 'Vinyl Glossy') pricePerSticker += 300; // Additional cost for Vinyl
                      if (cutType === 'Kiss Cut') pricePerSticker += 100; // Additional cost for Kiss Cut
                      if (cutType === 'Die Cut') pricePerSticker += 200; // Additional cost for Die Cut
-                     if (finishingPackaging === 'Laminasi Doff' || finishingPackaging === 'Laminasi Glossy') pricePerSticker += 150; // Additional cost for Laminasi
-                     // Asumsi UV Varnish tidak umum per stiker satuan
 
-                     // Ensure material/cut are selected if Label Stiker is chosen
-                     if (materialType === "" || cutType === "") {
-                         return 0; // Cannot calculate price if essential details are missing for Label Stiker
-                     }
+                     // Finishing untuk Label Stiker
+                     if (finishingPackaging === 'Laminasi Doff' || finishingPackaging === 'Laminasi Glossy') pricePerSticker += 150; // Additional cost for Laminasi
+                     // Asumsi UV Varnish tidak umum per stiker satuan, tapi bisa dihitung per lembar A3+
 
                      basePricePerItem = pricePerSticker; // Price per item (sticker)
 
@@ -527,13 +655,15 @@
                     // Harga per item custom lebih bervariasi tergantung jenisnya (Mug, kotak custom, dll)
                     // Asumsi ini hanya untuk Mug Sublim:
                      let pricePerMug = 25000; // Harga dasar per Mug (Example)
-                    // Mungkin ada biaya tambahan finishing jika relevan untuk Mug (misal Varnish Spot)
+
+                    // Finishing untuk Packaging Custom
                      if (finishingPackaging === 'UV Varnish') { // Asumsi UV Varnish bisa diaplikasikan ke Mug
                          pricePerMug += 5000; // Contoh: Biaya tambahan varnish spot per Mug
                      }
-                      // If packagingType is 'Packaging Custom' but finishingPackaging is essential and not selected, price could be 0
-                      // Example: if UV Varnish is the *only* custom finishing option, price is 0 unless selected.
-                      // For simplicity in this example, we don't enforce required finishing for 'Packaging Custom'
+                      // Finishing Laminasi biasanya tidak relevan untuk Mug
+                      if (finishingPackaging === 'Laminasi Doff' || finishingPackaging === 'Laminasi Glossy') {
+                           // Maybe add a small cost or just ignore? Let's ignore for Mug example
+                      }
 
                       basePricePerItem = pricePerMug; // Price per item (mug)
 
@@ -544,20 +674,27 @@
                  }
 
 
-                  // Ensure minimum price per item if needed (Optional)
-                  // const minPrice = 2000; // Example minimum price per item
+                  // Apply overall minimum price per item if needed (Optional)
+                  // const minPrice = 2000; // Example minimum price per item - might differ per product type
                   // if (basePricePerItem > 0 && basePricePerItem < minPrice) basePricePerItem = minPrice;
 
 
-                 // Only return price if packagingType is selected
-                 if (packagingType !== "") {
-                     // Apply minimum price if needed
-                     const minPrice = packagingType === 'Label Stiker' ? 1000 : 15000; // Example diff minimums
-                     if (basePricePerItem > 0 && basePricePerItem < minPrice) return minPrice;
-                     return basePricePerItem;
+                 // Only return price if packagingType is selected and essential options are chosen for the specific type
+                 if (packagingType !== "" && packagingType !== null && !packagingType.startsWith('-- Pilih')) {
+                     if (packagingType === 'Label Stiker' && (materialType === "" || materialType === null || materialType.startsWith('-- Pilih') || cutType === "" || cutType === null || cutType.startsWith('-- Pilih'))) {
+                          return 0; // Return 0 if essential options are missing for Label Stiker
+                     }
+                      // For Packaging Custom, we calculate even without finishing selected
+                     let finalCalculatedPrice = basePricePerItem;
+
+                      // Apply minimum price if needed
+                     const minPrice = packagingType === 'Label Stiker' ? 1000 : 15000; // Example diff minimums per item
+                     if (finalCalculatedPrice > 0 && finalCalculatedPrice < minPrice) return minPrice;
+
+                     return finalCalculatedPrice; // Return the calculated base price
                  }
 
-                 return 0; // Return 0 if packagingType is not selected or essential options are missing for Label Stiker
+                 return 0; // Return 0 if packagingType is not selected
               }
 
 
@@ -571,7 +708,7 @@
                 }).format(num);
              }
 
-            // Define function to update all price elements
+            // Define function to update all price elements and validation state
             function updateEstimatedPrice() {
                 const quantity = parseInt(quantityInput.value) || 0;
                 const packagingType = packagingTypeSelect.value;
@@ -580,70 +717,178 @@
                 const finishingPackaging = finishingPackagingSelect.value;
                 const selectedShippingMethod = shippingMethodSelect.value;
 
-                let itemSubtotal = 0;
-                let calculatedShipping = 0;
-                let calculatedTax = 0;
-                let finalTotal = 0;
-                let estimatedTime = 'Pilih opsi pengiriman';
-
-
-                // Calculate subtotal for items - only if quantity > 0 AND a main item type is selected AND essential options are chosen (for Label Stiker)
-                if (quantity > 0 && packagingType !== '') {
-                    // Calculate price per single item using the product-specific function
-                     let pricePerSingleItem = getItemPrice(packagingType, materialType, cutType, finishingPackaging);
-                     itemSubtotal = quantity * pricePerSingleItem;
+                // Show/hide and enable/disable fields based on Packaging Type
+                if (packagingType === 'Label Stiker') {
+                    materialTypeGroup.style.display = '';
+                    cutTypeGroup.style.display = '';
+                    materialTypeSelect.disabled = false;
+                    cutTypeSelect.disabled = false;
+                    materialTypeSelect.required = true; // Set required property
+                    cutTypeSelect.required = true; // Set required property
                 } else {
-                     itemSubtotal = 0; // Item subtotal is 0 if quantity is 0 or no main item type selected or essential options missing
+                    materialTypeGroup.style.display = 'none';
+                    cutTypeGroup.style.display = 'none';
+                    materialTypeSelect.disabled = true;
+                    cutTypeSelect.disabled = true;
+                     materialTypeSelect.required = false; // Remove required property
+                     cutTypeSelect.required = false; // Remove required property
+                     // Reset values when hidden/disabled to prevent incorrect validation
+                     materialTypeSelect.value = "";
+                     cutTypeSelect.value = "";
+                }
+                 // Finishing field is always visible but optional
+                 finishingPackagingSelect.required = false; // Ensure finishing is optional
+
+
+                let itemPricePerUnit = 0;
+                 // Calculate price per unit only if required fields for base price calculation are selected
+                 if (packagingType !== "" && packagingType !== null && !packagingType.startsWith('-- Pilih')) {
+                     if (packagingType === 'Label Stiker' && (materialType === "" || materialType === null || materialType.startsWith('-- Pilih') || cutType === "" || cutType === null || cutType.startsWith('-- Pilih'))) {
+                         // If Label Stiker is selected but material or cut are missing, unit price is 0
+                          itemPricePerUnit = 0;
+                     } else {
+                         // Otherwise, calculate the unit price
+                          itemPricePerUnit = getItemPrice(packagingType, materialType, cutType, finishingPackaging);
+                     }
+                 }
+
+                let itemSubtotal = 0;
+                if (quantity > 0 && itemPricePerUnit > 0) {
+                    itemSubtotal = quantity * itemPricePerUnit;
+                } else {
+                     itemSubtotal = 0; // Item subtotal is 0 if quantity is 0 or unit price is 0
                 }
 
 
-                 // Get shipping cost and estimated time
+                // Apply promo discount if applicable
+                let promoDiscountValue = 0;
+                if (appliedPromo && itemSubtotal > 0) { // Only apply promo if there's a valid subtotal
+                    if (appliedPromo.type === "percentage") {
+                        promoDiscountValue = itemSubtotal * appliedPromo.value;
+                    } else if (appliedPromo.type === "fixed") {
+                        promoDiscountValue = appliedPromo.value;
+                    }
+                    // Ensure discount does not exceed the subtotal
+                    if (promoDiscountValue > itemSubtotal) {
+                        promoDiscountValue = itemSubtotal;
+                    }
+                }
+
+                const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
+
+                // Calculate shipping cost
                 const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0; // Only add shipping if there's an item subtotal
-                estimatedTime = shippingInfo.estimatedTime;
+                let calculatedShipping = 0;
+                let estimatedTime = shippingInfo.estimatedTime;
 
-                 // Calculate tax
-                 calculatedTax = itemSubtotal * TAX_RATE_PLACEHOLDER;
+                 // Only add shipping cost if there's a valid item subtotal (after promo)
+                if (subtotalAfterPromo > 0) {
+                    calculatedShipping = shippingInfo.cost;
+                } else {
+                    // If subtotal is 0, shipping cost is also 0 regardless of method
+                    calculatedShipping = 0;
+                     estimatedTime = 'Pilih opsi pengiriman'; // Reset time if no items
+                }
 
 
-                 // Calculate final total (only if item subtotal > 0)
-                 if (itemSubtotal > 0) {
-                     finalTotal = itemSubtotal + calculatedShipping + calculatedTax;
+                // Calculate tax (applied to the subtotal *after* promo discount)
+                let calculatedTax = 0;
+                 if (subtotalAfterPromo > 0) { // Only calculate tax if there's a positive amount after promo
+                     calculatedTax = subtotalAfterPromo * TAX_RATE_PLACEHOLDER;
+                 }
+
+
+                // Calculate final total
+                let finalTotal = 0;
+                // Only calculate final total if there's a valid subtotal (after promo)
+                 if (subtotalAfterPromo > 0) {
+                      finalTotal = subtotalAfterPromo + calculatedShipping + calculatedTax;
                  } else {
-                     calculatedShipping = 0;
-                     calculatedTax = 0;
+                     // If subtotal is 0, total is 0
                      finalTotal = 0;
                  }
 
+
                 // Update the display elements
                 itemSubtotalDisplay.textContent = formatRupiah(itemSubtotal);
+                promoDiscountDisplay.textContent = formatRupiah(-promoDiscountValue); // Display discount as negative
                 shippingCostDisplay.textContent = formatRupiah(calculatedShipping);
                 taxAmountDisplay.textContent = formatRupiah(calculatedTax);
                 finalTotalDisplay.textContent = formatRupiah(finalTotal);
                 estimatedTimeDisplay.textContent = estimatedTime;
-            }
 
-            // Add event listeners to input elements that affect price
+                // --- Validation Logic to Enable/Disable Button ---
+                // Base requirements: quantity, product type, shipping, customer info
+                let isFormValid = quantity > 0 &&
+                                  packagingType !== "" && packagingType !== null && !packagingType.startsWith('-- Pilih') &&
+                                  selectedShippingMethod !== "" && selectedShippingMethod !== null && !selectedShippingMethod.startsWith('-- Pilih') &&
+                                  customerNameInput.value.trim() !== "" &&
+                                  customerPhoneInput.value.trim() !== "" &&
+                                  customerEmailInput.value.trim() !== "" &&
+                                  customerAddressInput.value.trim() !== ""; // Address is required now
+
+                // Additional requirements based on Packaging Type
+                 if (packagingType === 'Label Stiker') {
+                      isFormValid = isFormValid &&
+                                    materialType !== "" && materialType !== null && !materialType.startsWith('-- Pilih') &&
+                                    cutType !== "" && cutType !== null && !cutType.startsWith('-- Pilih');
+                 }
+                // No additional type-specific requirements implemented yet for 'Packaging Custom'
+
+                 // Also check if a valid price was calculated based on selections
+                 // This handles cases where type is selected but essential options for that type are missing,
+                 // resulting in itemPricePerUnit = 0, thus subtotal = 0.
+                 isFormValid = isFormValid && itemSubtotal > 0;
+
+
+                continueButton.disabled = !isFormValid;
+
+            } // End updateEstimatedPrice function
+
+            // Add event listener for the redeem promo button
+            redeemPromoButton.addEventListener('click', function() {
+                const code = promoCodeInput.value.trim().toUpperCase();
+                if (promoCodes[code]) {
+                    appliedPromo = promoCodes[code];
+                    alert(`Promo "${appliedPromo.description}" berhasil diterapkan!`); // Use alert for simplicity here
+                } else {
+                    appliedPromo = null; // Reset applied promo if code is invalid
+                    alert("Kode promo tidak valid.");
+                }
+                // Always update price after attempting to redeem a promo
+                updateEstimatedPrice();
+            });
+
+            // Add event listeners to input elements that affect price or validation
             quantityInput.addEventListener('input', updateEstimatedPrice);
             packagingTypeSelect.addEventListener('change', updateEstimatedPrice);
-            materialTypeSelect.addEventListener('change', updateEstimatedPrice);
-            cutTypeSelect.addEventListener('change', updateEstimatedPrice);
+            materialTypeSelect.addEventListener('change', updateEstimatedPrice); // Added listener
+            cutTypeSelect.addEventListener('change', updateEstimatedPrice); // Added listener
             finishingPackagingSelect.addEventListener('change', updateEstimatedPrice);
             shippingMethodSelect.addEventListener('change', updateEstimatedPrice);
+             customerNameInput.addEventListener('input', updateEstimatedPrice); // Add validation listeners
+             customerPhoneInput.addEventListener('input', updateEstimatedPrice);
+             customerEmailInput.addEventListener('input', updateEstimatedPrice);
+             customerAddressInput.addEventListener('input', updateEstimatedPrice);
+             // No need for promoCodeInput listener for instant price update unless desired
 
 
             // Add event listener for the "Lanjutkan Pembayaran" button
             continueButton.addEventListener('click', function(event) {
-                 // Basic form validation check
+                 // Prevent default form submission
+                 event.preventDefault();
+
+                 // Ensure form is valid just before submitting (redundant if button is disabled, but good practice)
                 if (!orderForm.checkValidity()) {
                     orderForm.reportValidity(); // Trigger browser's validation UI
                     return; // Stop the process
                 }
 
-                // Recalculate prices one last time
+                // Ensure price is calculated one last time with current values
                 updateEstimatedPrice();
 
-                // Recalculate values for storage based on current inputs
+                 // Recalculate values for storage based on current inputs
                 const quantity = parseInt(quantityInput.value) || 0;
                 const packagingType = packagingTypeSelect.value;
                 const materialType = materialTypeSelect.value;
@@ -651,9 +896,9 @@
                 const finishingPackaging = finishingPackagingSelect.value;
 
                  let pricePerSingleItem = 0;
-                 // Only calculate if essential fields are selected for price calculation
-                 if (quantity > 0 && packagingType !== '') {
-                     if (packagingType === 'Label Stiker' && (materialType === '' || cutType === '')) {
+                  // Only calculate if essential fields are selected for price calculation
+                 if (quantity > 0 && packagingType !== '' && packagingType !== null && !packagingType.startsWith('-- Pilih')) {
+                     if (packagingType === 'Label Stiker' && (materialType === "" || materialType === null || materialType.startsWith('-- Pilih') || cutType === "" || cutType === null || cutType.startsWith('-- Pilih'))) {
                          // If Label Stiker is selected but material or cut are missing, price is 0
                          pricePerSingleItem = 0;
                      } else {
@@ -663,21 +908,40 @@
                 const itemSubtotal = quantity * pricePerSingleItem;
 
 
+                 let promoDiscountValue = 0;
+                 let promoDescription = "Tidak ada"; // Default text if no promo
+                 if (appliedPromo && itemSubtotal > 0) {
+                     if (appliedPromo.type === "percentage") {
+                         promoDiscountValue = itemSubtotal * appliedPromo.value;
+                     } else if (appliedPromo.type === "fixed") {
+                         promoDiscountValue = appliedPromo.value;
+                     }
+                     if (promoDiscountValue > itemSubtotal) promoDiscountValue = itemSubtotal; // Cap discount at subtotal
+                     promoDescription = appliedPromo.description + ` (${promoCodeInput.value.trim().toUpperCase()})`;
+                 }
+                 const subtotalAfterPromo = itemSubtotal - promoDiscountValue;
+
+
                  const selectedShippingMethod = shippingMethodSelect.value;
                  const shippingInfo = shippingOptions[selectedShippingMethod] || shippingOptions[''];
-                 const calculatedShipping = itemSubtotal > 0 ? shippingInfo.cost : 0;
-                 const calculatedTax = itemSubtotal > 0 ? itemSubtotal * TAX_RATE_PLACEHOLDER : 0;
-                 const finalTotal = itemSubtotal > 0 ? itemSubtotal + calculatedShipping + calculatedTax : 0;
+                 const calculatedShipping = subtotalAfterPromo > 0 ? shippingInfo.cost : 0; // Shipping only if there's a subtotal after promo
                  const estimatedTime = shippingInfo.estimatedTime;
+
+                 const calculatedTax = subtotalAfterPromo > 0 ? subtotalAfterPromo * TAX_RATE_PLACEHOLDER : 0; // Tax only if subtotal after promo > 0
+
+                 const finalTotal = subtotalAfterPromo > 0 ? subtotalAfterPromo + calculatedShipping + calculatedTax : 0; // Final total only if subtotal after promo > 0
+
 
                  // Prepare specific options, only include if relevant and selected
                  const specificOptionsData = {};
-                 if (packagingType !== "") specificOptionsData["JenisProduk"] = packagingType;
-                 if (packagingType === "Label Stiker") { // Only add material and cut type if it's a Label Stiker
-                      if (materialType !== "") specificOptionsData["JenisBahan"] = materialType;
-                      if (cutType !== "") specificOptionsData["JenisPotong"] = cutType;
+                 if (packagingType !== "" && packagingType !== null && !packagingType.startsWith('-- Pilih')) specificOptionsData["JenisProduk"] = packagingType;
+                 if (packagingType === "Label Stiker") { // Only add material and cut type if it's a Label Stiker and they are selected
+                      if (materialType !== "" && materialType !== null && !materialType.startsWith('-- Pilih')) specificOptionsData["JenisBahan"] = materialType;
+                      if (cutType !== "" && cutType !== null && !cutType.startsWith('-- Pilih')) specificOptionsData["JenisPotong"] = cutType;
                  }
-                 if (finishingPackaging !== "") specificOptionsData["Finishing"] = finishingPackaging;
+                 if (finishingPackaging !== "" && finishingPackaging !== null && !finishingPackaging.startsWith('-- Pilih') && finishingPackaging !== 'None') { // Only add if selected and not "None"
+                     specificOptionsData["Finishing"] = finishingPackaging;
+                 }
 
 
                  // Gather all relevant data to pass to the payment page
@@ -696,6 +960,9 @@
 
                      // Detail Ringkasan Harga
                      itemSubtotal: itemSubtotal,
+                     promoApplied: promoDescription, // Store promo description and code
+                     promoDiscountAmount: promoDiscountValue, // Store discount amount
+                     subtotalAfterPromo: subtotalAfterPromo, // Store subtotal after promo
                      shippingCost: calculatedShipping,
                      taxAmount: calculatedTax,
                      finalTotal: finalTotal,
@@ -710,7 +977,7 @@
              });
 
 
-            // Call the function once when the page loads to set initial prices
+            // Call the function once when the page loads to set initial prices and validation state
             updateEstimatedPrice();
         });
     </script>
