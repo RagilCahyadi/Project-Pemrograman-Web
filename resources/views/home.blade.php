@@ -454,7 +454,7 @@
                     <i class="bi bi-geo-alt"></i>
                 </div>
                 <h5>Alamat</h5>
-                <p class="text-muted">Jl. Contoh No. 123<br>Kota Contoh, Indonesia</p>
+                <p class="text-muted">Kompleks PT. Semen Indonesia (Persero) Tbk, Gresik, East Java</p>
             </div>
             <div class="col-md-4 text-center mb-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="h1 text-primary mb-3">

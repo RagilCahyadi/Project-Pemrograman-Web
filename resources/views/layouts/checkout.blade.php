@@ -157,9 +157,9 @@
                     <div>
                         <h4 class="text-md font-semibold mb-4">Contact Info</h4>
                         <ul class="space-y-2 text-gray-300">
-                            <li>📧 info@rnrdigitalprinting.com</li>
+                            <li>📧 digitalprinting@rnr.tugas1.id</li>
                             <li>📞 0851-5696-3404</li>
-                            <li>📍 Jl. Contoh No. 123, Kota Contoh</li>
+                            <li>📍 Kompleks PT. Semen Indonesia (Persero) Tbk, Gresik, East Java</li>
                         </ul>
                     </div>
                 </div>

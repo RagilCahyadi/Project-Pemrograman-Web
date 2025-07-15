@@ -30,9 +30,9 @@
                             <h5 class="mb-0">Informasi Pesanan</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('orders.update', $order) }}" method="POST">
+                            <form action="/orders/{{ $order->id }}/status" method="POST">
                                 @csrf
-                                @method('PUT')
+                                @method('PATCH')
                                 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -75,7 +75,7 @@
                                                 <option value="">Pilih Metode Pengiriman</option>
                                                 @foreach($shippings as $shipping)
                                                     <option value="{{ $shipping->id }}" {{ old('shipping_id', $order->shipping_id) == $shipping->id ? 'selected' : '' }}>
-                                                        {{ $shipping->name }} - Rp {{ number_format($shipping->price) }}
+                                                        {{ $shipping->courier }} - Rp {{ number_format($shipping->shipping_cost) }}
                                                     </option>
                                                 @endforeach
                                             </select>
