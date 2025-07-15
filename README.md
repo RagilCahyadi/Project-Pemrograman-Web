@@ -162,6 +162,186 @@ rnr-digital-printing/
 
 ---
 
+## 🛣️ Routes Structure
+
+### Public Routes
+
+#### Home & Landing Page
+```php
+GET  /                      # Homepage
+POST /contact               # Contact form submission
+```
+
+#### Service Pages (Public Access)
+```php
+GET  /services/fancy-paper    # Fancy paper service page
+GET  /services/packaging      # Packaging service page  
+GET  /services/banner         # Banner printing page
+GET  /services/uv-printing    # UV printing service page
+POST /services/calculate-price # Price calculation
+POST /services/place-order    # Place order from service page
+```
+
+#### Checkout Process
+```php
+GET  /checkout               # Checkout page
+POST /checkout               # Store order data
+POST /checkout/process       # Process payment
+GET  /checkout/success/{order} # Success page
+```
+
+### Authentication Routes
+```php
+GET  /login                  # Customer login
+POST /login                  # Customer login submit
+GET  /register               # Customer register
+POST /register               # Customer register submit
+POST /logout                 # Customer logout
+GET  /password/reset         # Password reset
+POST /password/email         # Send reset email
+GET  /password/reset/{token} # Reset with token
+POST /password/reset         # Process password reset
+```
+
+### Customer Protected Routes
+*Middleware: auth*
+
+```php
+GET  /home                   # Customer dashboard
+GET  /my-orders              # Customer's order history
+```
+
+### Admin Authentication Routes
+*Prefix: admin*
+
+```php
+GET  /admin/login            # Admin login page
+POST /admin/login            # Admin login submit
+POST /admin/logout           # Admin logout
+```
+
+### Admin Protected Routes
+*Middleware: auth, admin*
+
+#### Dashboard
+```php
+GET  /dashboard              # Admin dashboard
+```
+
+#### Product Management
+```php
+GET    /products             # List all products
+GET    /products/create      # Create product form
+POST   /products             # Store new product
+GET    /products/{id}        # Show product details
+GET    /products/{id}/edit   # Edit product form
+PUT    /products/{id}        # Update product
+DELETE /products/{id}        # Delete product
+POST   /products/{id}/upload-photo # Upload product photo
+DELETE /products/{id}/photos/{photo} # Delete product photo
+```
+
+#### Category Management
+```php
+GET    /categories           # List all categories
+GET    /categories/create    # Create category form
+POST   /categories           # Store new category
+GET    /categories/{id}      # Show category details
+GET    /categories/{id}/edit # Edit category form
+PUT    /categories/{id}      # Update category
+DELETE /categories/{id}      # Delete category
+```
+
+#### Customer Management
+```php
+GET    /customers            # List all customers
+GET    /customers/create     # Create customer form
+POST   /customers            # Store new customer
+GET    /customers/{id}       # Show customer details
+GET    /customers/{id}/edit  # Edit customer form
+PUT    /customers/{id}       # Update customer
+DELETE /customers/{id}       # Delete customer
+```
+
+#### Order Management
+```php
+GET    /orders               # List all orders
+GET    /orders/create        # Create order form
+POST   /orders               # Store new order
+GET    /orders/{id}          # Show order details
+GET    /orders/{id}/edit     # Edit order form
+PUT    /orders/{id}          # Update order
+DELETE /orders/{id}          # Delete order
+GET    /orders/export        # Export orders to Excel/CSV
+PATCH  /orders/{id}/status   # Update order status
+PATCH  /orders/{id}/payment  # Update payment status
+GET    /orders/{id}/invoice  # Generate order invoice
+```
+
+#### Contact Management
+```php
+GET    /contacts             # List all contact submissions
+GET    /contacts/{id}        # Show contact details
+DELETE /contacts/{id}        # Delete contact submission
+PATCH  /contacts/{id}/status # Update contact status
+```
+
+### API Routes (AJAX)
+*Prefix: api, Middleware: auth, admin*
+
+```php
+GET    /api/products/search  # Search products
+GET    /api/customers/search # Search customers
+GET    /api/orders/stats     # Order statistics
+GET    /api/dashboard/stats  # Dashboard statistics
+PATCH  /api/categories/{id}/toggle-status # Toggle category status
+```
+
+### Route Middleware Groups
+
+#### Guest Routes
+- Authentication pages (login, register)
+- Public service pages
+- Homepage and contact
+
+#### Auth Routes (Customer)
+- Customer dashboard
+- Order history
+- Profile management
+
+#### Admin Routes
+- All administrative functions
+- CRUD operations
+- Dashboard and analytics
+- User management
+
+### Route Naming Convention
+
+```php
+// Public routes
+Route::name('home')
+Route::name('services.{service-name}')
+Route::name('checkout.{action}')
+
+// Auth routes (built-in Laravel naming)
+Route::name('login'), Route::name('register'), etc.
+
+// Admin routes
+Route::name('admin.{function}')
+Route::name('dashboard')
+
+// Resource routes (Laravel convention)
+Route::name('{resource}.index')    # List
+Route::name('{resource}.create')   # Create form
+Route::name('{resource}.store')    # Store
+Route::name('{resource}.show')     # Show
+Route::name('{resource}.edit')     # Edit form
+Route::name('{resource}.update')   # Update
+Route::name('{resource}.destroy')  # Delete
+```
+
+---
+
 ## 🎯 Usage Guide
 
 ### For Customers:
